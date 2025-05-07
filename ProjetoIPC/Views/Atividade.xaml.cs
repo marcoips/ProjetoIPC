@@ -21,22 +21,26 @@ namespace ProjetoIPC.Views
 
         private void OnDriveTapped(Frame tappedFrame)
         {
+            // Hide all dropdowns
+            Drive1Dropdown.IsVisible = false;
+            Drive2Dropdown.IsVisible = false;
+            Drive3Dropdown.IsVisible = false;
 
-            // If the tapped frame is already expanded, reset it
-            if (_lastTappedFrame == tappedFrame && tappedFrame.Scale > 1)
+            // If the tapped frame is already expanded, collapse it
+            if (_lastTappedFrame == tappedFrame)
             {
-                tappedFrame.Scale = 1; // Reset to default size
                 _lastTappedFrame = null; // Clear the last tapped frame
                 return;
             }
 
-            // Reset all frames to default size
-            Drive1Frame.Scale = 1;
-            Drive2Frame.Scale = 1;
-            Drive3Frame.Scale = 1;
+            // Show the dropdown for the tapped frame
+            if (tappedFrame == Drive1Frame)
+                Drive1Dropdown.IsVisible = true;
+            else if (tappedFrame == Drive2Frame)
+                Drive2Dropdown.IsVisible = true;
+            else if (tappedFrame == Drive3Frame)
+                Drive3Dropdown.IsVisible = true;
 
-            // Scale the tapped frame
-            tappedFrame.Scale = 1.2; // Increase size by 20%
             _lastTappedFrame = tappedFrame; // Track the tapped frame
         }
     }

@@ -33,8 +33,19 @@
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding DriveTappedCommand}" CommandParameter="{x:Reference Drive1Frame}" />
                 </Frame.GestureRecognizers>
-                <Label Text="drive 1"
-               HorizontalOptions="Center" />
+                <VerticalStackLayout>
+                    <!-- Original Content -->
+                    <Label Text="drive 1"
+                   HorizontalOptions="Center" />
+
+                    <!-- Dropdown Box -->
+                    <BoxView x:Name="Drive1Dropdown"
+                     BackgroundColor="White"
+                     CornerRadius="15"
+                     HeightRequest="100"
+                     IsVisible="False"
+                     Margin="0,10,0,0" />
+                </VerticalStackLayout>
             </Frame>
 
             <Frame CornerRadius="15"
@@ -44,8 +55,19 @@
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding DriveTappedCommand}" CommandParameter="{x:Reference Drive2Frame}" />
                 </Frame.GestureRecognizers>
-                <Label Text="drive 2"
-               HorizontalOptions="Center" />
+                <VerticalStackLayout>
+                    <!-- Original Content -->
+                    <Label Text="drive 2"
+                   HorizontalOptions="Center" />
+
+                    <!-- Dropdown Box -->
+                    <BoxView x:Name="Drive2Dropdown"
+                     BackgroundColor="White"
+                     CornerRadius="15"
+                     HeightRequest="100"
+                     IsVisible="False"
+                     Margin="0,10,0,0" />
+                </VerticalStackLayout>
             </Frame>
 
             <Frame CornerRadius="15"
@@ -55,8 +77,19 @@
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding DriveTappedCommand}" CommandParameter="{x:Reference Drive3Frame}" />
                 </Frame.GestureRecognizers>
-                <Label Text="drive 3"
-               HorizontalOptions="Center" />
+                <VerticalStackLayout>
+                    <!-- Original Content -->
+                    <Label Text="drive 3"
+                   HorizontalOptions="Center" />
+
+                    <!-- Dropdown Box -->
+                    <BoxView x:Name="Drive3Dropdown"
+                     BackgroundColor="White"
+                     CornerRadius="15"
+                     HeightRequest="100"
+                     IsVisible="False"
+                     Margin="0,10,0,0" />
+                </VerticalStackLayout>
             </Frame>
         </VerticalStackLayout>
 
