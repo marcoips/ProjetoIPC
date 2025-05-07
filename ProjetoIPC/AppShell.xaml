@@ -23,5 +23,10 @@
     ContentTemplate="{DataTemplate views:Atividade}"
     Route="Atividade" />
 
+    <ShellContent
+    Title="Confirmation"
+    ContentTemplate="{DataTemplate views:Confirmation}"
+    Route="Confirmation" />
+
 
 </Shell>
