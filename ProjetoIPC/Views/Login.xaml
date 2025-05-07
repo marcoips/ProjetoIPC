@@ -24,7 +24,8 @@
                 BackgroundColor="Orange"
                 TextColor="Black"
                 CornerRadius="20"
-                HeightRequest="40" />
+                HeightRequest="40" 
+                Clicked="OnLoginButtonClicked"/>
 
         <!-- Separator -->
         <Label Text="or" HorizontalOptions="Center" />
@@ -41,7 +42,8 @@
                 BackgroundColor="Gray"
                 TextColor="White"
                 CornerRadius="20"
-                HeightRequest="40" />
+                HeightRequest="40"
+                Clicked="OnRegisterButtonClicked"/>
 
     </VerticalStackLayout>
 </ContentPage>
