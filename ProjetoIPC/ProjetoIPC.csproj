@@ -65,6 +65,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\Atividade.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\DriverApplicationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

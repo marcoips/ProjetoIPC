@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetoIPC.Views.Atividade"
+             Title="Activity"
+             BackgroundColor="White">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+
+        <!-- Título e logotipo -->
+        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+            <Label Text="Activity"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+            <Image Source="ezyride_logo.png"
+                   WidthRequest="60"
+                   HeightRequest="60"
+                   Margin="10,0,0,0" />
+        </HorizontalStackLayout>
+
+        <!-- Subtítulo -->
+        <Label Text="Last drives"
+               FontSize="18"
+               HorizontalOptions="Center" />
+
+        <!-- Lista de Drives -->
+        <VerticalStackLayout Spacing="15">
+            <Frame CornerRadius="15"
+                   BackgroundColor="#CCCCCC"
+                   Padding="20">
+                <Label Text="drive 1"
+                       HorizontalOptions="Center" />
+            </Frame>
+
+            <Frame CornerRadius="15"
+                   BackgroundColor="#CCCCCC"
+                   Padding="20">
+                <Label Text="drive 2"
+                       HorizontalOptions="Center" />
+            </Frame>
+
+            <Frame CornerRadius="15"
+                   BackgroundColor="#CCCCCC"
+                   Padding="20">
+                <Label Text="drive 3"
+                       HorizontalOptions="Center" />
+            </Frame>
+        </VerticalStackLayout>
+
+        <!-- Barra de Navegação Inferior -->
+        <Grid ColumnDefinitions="*,*,*"
+              VerticalOptions="EndAndExpand"
+              Margin="0,30,0,0">
+            <Button Text="home"
+                    BackgroundColor="#FFA500"
+                    Grid.Column="0" />
+
+            <Button Text="activity"
+                    BackgroundColor="#FF8C00"
+                    Grid.Column="1" />
+
+            <Button Text="profile"
+                    BackgroundColor="#FFA500"
+                    Grid.Column="2" />
+        </Grid>
+    </VerticalStackLayout>
+
+</ContentPage>

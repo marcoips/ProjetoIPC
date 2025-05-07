@@ -18,5 +18,10 @@
     ContentTemplate="{DataTemplate views:DriverApplicationPage}"
     Route="DriverApplicationPage" />
 
+    <ShellContent
+    Title="Atividade"
+    ContentTemplate="{DataTemplate views:Atividade}"
+    Route="Atividade" />
+
 
 </Shell>
