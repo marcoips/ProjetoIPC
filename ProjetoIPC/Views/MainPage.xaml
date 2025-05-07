@@ -3,10 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.MainPage">
 
-    <ScrollView>
+    <Frame HeightRequest="600" 
+                WidthRequest="600"
+               CornerRadius="10" 
+               Padding="0"
+               HasShadow="True">
         <WebView x:Name="mapWebView" 
-             HorizontalOptions="Fill" 
-             VerticalOptions="Fill" />
-    </ScrollView>
+                     HorizontalOptions="Fill" 
+                     VerticalOptions="Fill"/>
+    </Frame>
 
 </ContentPage>
