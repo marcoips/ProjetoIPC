@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetoIPC.Views.Login"
+             BackgroundColor="White"
+             Title="Login">
+
+    <VerticalStackLayout Padding="30" Spacing="20" HorizontalOptions="Center">
+
+        <!-- Logo -->
+        <Image Source="logo.png" HeightRequest="120" WidthRequest="120" HorizontalOptions="Center"/>
+
+        <!-- Login input -->
+        <Entry Placeholder="Login" x:Name="LoginEntry" />
+
+        <!-- Password input -->
+        <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry" />
+
+        <!-- Forgot Password -->
+        <Label Text="Forgot password?" TextColor="LightSkyBlue" HorizontalOptions="End" />
+
+        <!-- Login Button -->
+        <Button Text="log in"
+                BackgroundColor="Orange"
+                TextColor="Black"
+                CornerRadius="20"
+                HeightRequest="40" />
+
+        <!-- Separator -->
+        <Label Text="or" HorizontalOptions="Center" />
+
+        <!-- Facebook Login Button -->
+        <Button Text="log in with facebook"
+                BackgroundColor="LightSkyBlue"
+                TextColor="Black"
+                CornerRadius="20"
+                HeightRequest="40" />
+
+        <!-- Register Button -->
+        <Button Text="register"
+                BackgroundColor="Gray"
+                TextColor="White"
+                CornerRadius="20"
+                HeightRequest="40" />
+
+    </VerticalStackLayout>
+</ContentPage>
