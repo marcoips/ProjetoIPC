@@ -1,12 +1,39 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.Views.Register"
-             Title="Register"
-             BackgroundColor="White">
+             Title="Register">
 
-    <VerticalStackLayout Padding="30" Spacing="20" HorizontalOptions="Center">
-        <Label Text="Register Page" FontSize="24" HorizontalOptions="Center" />
-        <!-- Adicione aqui os elementos da página de registro -->
-    </VerticalStackLayout>
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Text="&#x2190;" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" Clicked="OnBackButtonClicked"/>
+                <Label Text="Register" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"/>
+                <Image Source="logo.png" Grid.Row="0" Grid.Column="2" HorizontalOptions="End" WidthRequest="40" HeightRequest="40"/>
+
+                <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Spacing="10">
+                    <Entry Placeholder="Login"/>
+                    <Entry Placeholder="Password" IsPassword="True"/>
+                    <Entry Placeholder="Email"/>
+                    <Entry Placeholder="Name"/>
+                    <DatePicker/>
+                    <Entry Placeholder="Phone"/>
+                    <Entry Placeholder="Address"/>
+                    <Entry Placeholder="Country"/>
+                    <Entry Placeholder="City"/>
+                    <Button Text="Submit" BackgroundColor="Orange" TextColor="White"/>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

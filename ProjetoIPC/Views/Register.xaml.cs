@@ -1,9 +1,19 @@
-namespace ProjetoIPC.Views;
+using Microsoft.Maui.Controls;
 
-public partial class Register : ContentPage
+namespace ProjetoIPC.Views
 {
-	public Register()
-	{
-		InitializeComponent();
-	}
+    public partial class Register : ContentPage
+    {
+        public Register()
+        {
+            InitializeComponent();
+        }
+
+        private async void OnBackButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+    }
 }
+
+
