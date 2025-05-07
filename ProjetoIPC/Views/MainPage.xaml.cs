@@ -1,24 +1,35 @@
-﻿namespace ProjetoIPC
+﻿using System.Reflection;
+
+namespace ProjetoIPC
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
+            LoadMap();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void LoadMap()
         {
-            count++;
+            try
+            {
+                // Carrega o HTML do arquivo embutido
+                var htmlSource = new HtmlWebViewSource();
+                htmlSource.Html = await LoadHtmlFromAsset();
+                mapWebView.Source = htmlSource;
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Erro", $"Falha ao carregar o mapa: {ex.Message}", "OK");
+            }
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private async Task<string> LoadHtmlFromAsset()
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync("map.html");
+            using var reader = new StreamReader(stream);
+            return await reader.ReadToEndAsync();
         }
     }
 
