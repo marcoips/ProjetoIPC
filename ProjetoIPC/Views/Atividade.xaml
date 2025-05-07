@@ -27,24 +27,36 @@
         <!-- Lista de Drives -->
         <VerticalStackLayout Spacing="15">
             <Frame CornerRadius="15"
-                   BackgroundColor="#CCCCCC"
-                   Padding="20">
+           BackgroundColor="#CCCCCC"
+           Padding="20"
+           x:Name="Drive1Frame">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding DriveTappedCommand}" CommandParameter="{x:Reference Drive1Frame}" />
+                </Frame.GestureRecognizers>
                 <Label Text="drive 1"
-                       HorizontalOptions="Center" />
+               HorizontalOptions="Center" />
             </Frame>
 
             <Frame CornerRadius="15"
-                   BackgroundColor="#CCCCCC"
-                   Padding="20">
+           BackgroundColor="#CCCCCC"
+           Padding="20"
+           x:Name="Drive2Frame">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding DriveTappedCommand}" CommandParameter="{x:Reference Drive2Frame}" />
+                </Frame.GestureRecognizers>
                 <Label Text="drive 2"
-                       HorizontalOptions="Center" />
+               HorizontalOptions="Center" />
             </Frame>
 
             <Frame CornerRadius="15"
-                   BackgroundColor="#CCCCCC"
-                   Padding="20">
+           BackgroundColor="#CCCCCC"
+           Padding="20"
+           x:Name="Drive3Frame">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding DriveTappedCommand}" CommandParameter="{x:Reference Drive3Frame}" />
+                </Frame.GestureRecognizers>
                 <Label Text="drive 3"
-                       HorizontalOptions="Center" />
+               HorizontalOptions="Center" />
             </Frame>
         </VerticalStackLayout>
 
