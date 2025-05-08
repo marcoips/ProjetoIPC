@@ -1,0 +1,28 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetoIPC.Views.DriveInfo"
+             Title="DriveInfo">
+
+    <StackLayout Padding="10">
+        <!-- Top section with logo and text -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Image Source="logo.png" WidthRequest="50" HeightRequest="50"/>
+            <Label Text="Activity" FontSize="24" VerticalOptions="Center"/>
+        </StackLayout>
+
+        <!-- Heading -->
+        <Label Text="Drive 1" FontSize="20" HorizontalOptions="Center" Margin="10"/>
+
+        <!-- Main content area -->
+        <Frame BackgroundColor="Gray" HeightRequest="500" HorizontalOptions="FillAndExpand">
+            <Label Text="drive 1" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Frame>
+
+        <!-- Bottom navigation buttons -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+            <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+            <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+            <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -28,5 +28,10 @@
     ContentTemplate="{DataTemplate views:Confirmation}"
     Route="Confirmation" />
 
+    <ShellContent
+    Title="DriveInfo"
+    ContentTemplate="{DataTemplate views:DriveInfo}"
+    Route="DriveInfo" />
+
 
 </Shell>
