@@ -3,14 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.MainPage">
 
-    <Frame HeightRequest="600" 
-                WidthRequest="600"
+    <StackLayout VerticalOptions="FillAndExpand">
+        <Frame HeightRequest="500" 
+               WidthRequest="600"
                CornerRadius="10" 
                Padding="0"
-               HasShadow="True">
-        <WebView x:Name="mapWebView" 
+               HasShadow="True"
+               VerticalOptions="StartAndExpand">
+            <WebView x:Name="mapWebView" 
                      HorizontalOptions="Fill" 
-                     VerticalOptions="Fill"/>
-    </Frame>
+                     VerticalOptions="FillAndExpand"/>
+        </Frame>
+        <Button Text="Submit" 
+                HorizontalOptions="Center" 
+                VerticalOptions="End"
+                BackgroundColor="Orange"
+                TextColor="White"
+                CornerRadius="10"
+                Margin="0,0,0,100"/>
+    </StackLayout>
 
 </ContentPage>
