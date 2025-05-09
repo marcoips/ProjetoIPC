@@ -1,6 +1,7 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Storage;
 
+
 namespace ProjetoIPC.Views;
 
 public partial class DriverApplicationPage : ContentPage
