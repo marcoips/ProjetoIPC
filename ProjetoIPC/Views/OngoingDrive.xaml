@@ -1,0 +1,32 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetoIPC.Views.OngoingDrive"
+             Title="OngoingDrive">
+
+    <StackLayout Padding="10">
+        <!-- Top section with logo e texto -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Image Source="logo.png" WidthRequest="50" HeightRequest="50"/>
+            <Label Text="Ongoing drive" FontSize="24" VerticalOptions="Center"/>
+        </StackLayout>
+
+        <!-- Heading -->
+        <Label Text="Drive 1" FontSize="20" HorizontalOptions="Center" Margin="10"/>
+
+        <!-- Map area -->
+        <WebView x:Name="mapWebView" HeightRequest="400" WidthRequest="450" HorizontalOptions="FillAndExpand"/>
+
+        <!-- Bottom buttons -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+            <Button Text="message" BackgroundColor="Blue" WidthRequest="100" Margin="5"/>
+            <Button Text="cancel" BackgroundColor="Red" WidthRequest="100" Margin="5"/>
+        </StackLayout>
+
+        <!-- Bottom navigation buttons -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+            <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+            <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+            <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

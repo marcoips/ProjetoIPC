@@ -38,4 +38,9 @@
     ContentTemplate="{DataTemplate views:LatestDrives}"
     Route="LatestDrives" />
 
+    <ShellContent
+    Title="OngoingDrive"
+    ContentTemplate="{DataTemplate views:OngoingDrive}"
+    Route="OngoingDrive" />
+
 </Shell>
