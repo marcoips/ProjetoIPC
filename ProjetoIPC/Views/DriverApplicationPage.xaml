@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.Views.DriverApplicationPage"
@@ -29,55 +28,58 @@
                    FontAttributes="Bold"/>
 
             <!-- Upload sections -->
-            <Grid ColumnDefinitions="*,Auto" RowSpacing="20">
+            <VerticalStackLayout Spacing="20">
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label Text="Driver License"
+                           BackgroundColor="Orange"
+                           Padding="10"
+                           FontSize="14"
+                           VerticalTextAlignment="Center"
+                           HeightRequest="40"
+                           HorizontalOptions="Fill"
+                           Margin="10"/>
 
-                <Label Text="Driver License"
-                       BackgroundColor="Orange"
-                       Padding="10"
-                       FontSize="14"
-                       VerticalTextAlignment="Center"
-                       HeightRequest="40"
-                       HorizontalOptions="Fill"
-                       />
+                    <Button Text="Upload"
+                            BackgroundColor="LightGray"
+                            Grid.Column="1"
+                            HeightRequest="40"
+                            WidthRequest="100"/>
+                </Grid>
 
-                <Button Text="Upload"
-                        BackgroundColor="LightGray"
-                        Grid.Column="1"
-                        HeightRequest="40"
-                        WidthRequest="100"/>
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label Text="Identity Card"
+                           BackgroundColor="Orange"
+                           Padding="10"
+                           FontSize="14"
+                           VerticalTextAlignment="Center"
+                           HeightRequest="40"
+                           HorizontalOptions="Fill"
+                           Margin="10"/>
 
-                <Label Text="Identity Card"
-                       BackgroundColor="Orange"
-                       Padding="10"
-                       FontSize="14"
-                       VerticalTextAlignment="Center"
-                       HeightRequest="40"
-                       Grid.Row="1"
-                       HorizontalOptions="Fill"/>
+                    <Button Text="Upload"
+                            BackgroundColor="LightGray"
+                            Grid.Column="1"
+                            HeightRequest="40"
+                            WidthRequest="100"/>
+                </Grid>
 
-                <Button Text="Upload"
-                        BackgroundColor="LightGray"
-                        Grid.Column="1"
-                        Grid.Row="1"
-                        HeightRequest="40"
-                        WidthRequest="100"/>
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label Text="Vehicle Documents"
+                           BackgroundColor="Orange"
+                           Padding="10"
+                           FontSize="14"
+                           VerticalTextAlignment="Center"
+                           HeightRequest="40"
+                           HorizontalOptions="Fill"
+                           Margin="10"/>
 
-                <Label Text="Vehicle Documents"
-                       BackgroundColor="Orange"
-                       Padding="10"
-                       FontSize="14"
-                       VerticalTextAlignment="Center"
-                       HeightRequest="40"
-                       Grid.Row="2"
-                       HorizontalOptions="Fill"/>
-
-                <Button Text="Upload"
-                        BackgroundColor="LightGray"
-                        Grid.Column="1"
-                        Grid.Row="2"
-                        HeightRequest="40"
-                        WidthRequest="100"/>
-            </Grid>
+                    <Button Text="Upload"
+                            BackgroundColor="LightGray"
+                            Grid.Column="1"
+                            HeightRequest="40"
+                            WidthRequest="100"/>
+                </Grid>
+            </VerticalStackLayout>
 
             <!-- Submit button -->
             <Button Text="Submit Application"
