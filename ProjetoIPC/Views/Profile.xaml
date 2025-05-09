@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetoIPC.Views.Profile"
+             Title="Profile">
+
+    <StackLayout Padding="20" Spacing="20">
+
+        <!-- Cabeçalho com título e logotipo -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Profile"
+                   FontSize="24"
+                   VerticalOptions="Center"
+                   Grid.Column="0" />
+
+            <Image Source="logo.png"
+                   HeightRequest="40"
+                   VerticalOptions="Center"
+                   Grid.Column="1" />
+        </Grid>
+
+        <!-- Botão para ser condutor -->
+        <Button x:Name="ApplyButton"
+                Text="apply to be a driver"
+                BackgroundColor="Orange"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="45" />
+
+        <!-- Campos do formulário -->
+        <StackLayout Spacing="10">
+            <Entry Placeholder="Type" />
+            <Entry Placeholder="Email" Keyboard="Email" />
+            <Entry Placeholder="Name" />
+            <Entry Placeholder="Birthday" />
+            <Entry Placeholder="Phone" Keyboard="Telephone" />
+            <Entry Placeholder="Address" />
+            <Entry Placeholder="Country" />
+            <Entry Placeholder="City" />
+
+            <Picker Title="Condition">
+                <Picker.Items>
+                    <x:String>Cego</x:String>
+                    <x:String>Surdo</x:String>
+                    <x:String>Mudo</x:String>
+                </Picker.Items>
+                <Picker.SelectedIndex>1</Picker.SelectedIndex>
+            </Picker>
+        </StackLayout>
+
+
+        <!-- Barra de navegação inferior corrigida -->
+        <Grid ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Home"
+                    BackgroundColor="Orange"
+                    TextColor="White"
+                    Grid.Column="0" />
+
+            <Button Text="Activity"
+                    BackgroundColor="Orange"
+                    TextColor="White"
+                    Grid.Column="1" />
+
+            <Button Text="Profile"
+                    BackgroundColor="Orange"
+                    TextColor="White"
+                    Grid.Column="2" />
+        </Grid>
+
+    </StackLayout>
+</ContentPage>
