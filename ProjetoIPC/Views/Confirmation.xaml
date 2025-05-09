@@ -1,9 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.Views.Confirmation"
              Title="Confirmation">
 
-    <ContentPage.Content>
+    <Grid>
+        <!-- Fundo: Imagem -->
+        <Image Source="logonoback.png"
+               Aspect="AspectFill"
+               Opacity="0.2"  
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
+        
         <StackLayout Padding="20">
             <Grid>
                 <Grid.RowDefinitions>
@@ -18,8 +26,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Text="&#x2190;" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" Clicked="OnBackButtonClicked"/>
-                <Label Text="Confirmation" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"/>
-                <Image Source="Logo.png" Grid.Row="0" Grid.Column="2" HorizontalOptions="End" WidthRequest="40" HeightRequest="40"/>
+                <Label Text="Confirmation" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"/>                
 
                 <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Spacing="10">
                     <Label Text="Insert mail code sent to your mail" TextColor="Gray"/>
@@ -28,5 +35,5 @@
                 </StackLayout>
             </Grid>
         </StackLayout>
-    </ContentPage.Content>
+    </Grid>
 </ContentPage>

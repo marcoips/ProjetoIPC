@@ -1,32 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.Views.OngoingDrive"
              Title="OngoingDrive">
 
-    <StackLayout Padding="10">
-        <!-- Top section with logo e texto -->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Image Source="logo.png" WidthRequest="50" HeightRequest="50"/>
-            <Label Text="Ongoing drive" FontSize="24" VerticalOptions="Center"/>
+    <Grid>
+        <!-- Fundo: Imagem -->
+        <Image Source="logonoback.png"
+               Aspect="AspectFill"
+               Opacity="0.2"  
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
+
+        <StackLayout Padding="10">
+            <!-- Top section with logo e texto -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Ongoing drive" FontSize="24" VerticalOptions="Center"/>
+            </StackLayout>
+
+            <!-- Map area -->
+            <WebView x:Name="mapWebView" HeightRequest="400" WidthRequest="450" HorizontalOptions="FillAndExpand"/>
+
+            <!-- Bottom buttons -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+                <Button Text="message" BackgroundColor="Blue" WidthRequest="100" Margin="5"/>
+                <Button Text="cancel" BackgroundColor="Red" WidthRequest="100" Margin="5"/>
+            </StackLayout>
+
+            <!-- Bottom navigation buttons -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+                <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
+                <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
+                <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+            </StackLayout>
         </StackLayout>
-
-        <!-- Heading -->
-        <Label Text="Drive 1" FontSize="20" HorizontalOptions="Center" Margin="10"/>
-
-        <!-- Map area -->
-        <WebView x:Name="mapWebView" HeightRequest="400" WidthRequest="450" HorizontalOptions="FillAndExpand"/>
-
-        <!-- Bottom buttons -->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
-            <Button Text="message" BackgroundColor="Blue" WidthRequest="100" Margin="5"/>
-            <Button Text="cancel" BackgroundColor="Red" WidthRequest="100" Margin="5"/>
-        </StackLayout>
-
-        <!-- Bottom navigation buttons -->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
-            <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
-            <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
-            <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
-        </StackLayout>
-    </StackLayout>
+    </Grid>
 </ContentPage>

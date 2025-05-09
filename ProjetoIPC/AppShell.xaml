@@ -5,9 +5,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ProjetoIPC"
     xmlns:views="clr-namespace:ProjetoIPC.Views"
-    Shell.FlyoutBehavior="Flyout"
-    Title="ProjetoIPC">
+    Shell.FlyoutBehavior="Disabled"
+    Title="ProjetoIPC"
+    Shell.BackgroundColor="{StaticResource Primary}"
+    Shell.ForegroundColor="White"
+    Shell.TitleColor="White"
+    Shell.DisabledColor="Gray"
+    Shell.UnselectedColor="LightGray"
+    Shell.TabBarBackgroundColor="White"
+    Shell.TabBarForegroundColor="{StaticResource Primary}"
+    Shell.TabBarTitleColor="{StaticResource Primary}"
+    Shell.TabBarUnselectedColor="Gray">
 
+    
     <TabBar>
         <ShellContent
         Title="Home"

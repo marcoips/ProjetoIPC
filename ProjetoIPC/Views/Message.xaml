@@ -1,42 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.Views.Message"
              Title="Message">
 
-    <StackLayout Padding="10">
-        <!-- Top section with back arrow, title, and logo -->
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Button Text="←" BackgroundColor="Red" WidthRequest="50" HeightRequest="50" Grid.Column="0"/>
-            <Label Text="Message" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1"/>
-            <Image Source="logo.png" WidthRequest="50" HeightRequest="50" Grid.Column="2"/>
-        </Grid>
+    <Grid>
+        <!-- Fundo: Imagem com opacidade -->
+        <Image Source="logonoback.png"
+               Aspect="AspectFill"
+               Opacity="0.2"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
 
-        <!-- Heading -->
-        <Label Text="Drive 1" FontSize="20" HorizontalOptions="Center" Margin="10"/>
+        <!-- Conteúdo principal -->
+        <StackLayout Padding="10">
+            <!-- Top section with back arrow, title, and logo -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="←" BackgroundColor="Red" WidthRequest="50" HeightRequest="50" Grid.Column="0"/>
+                <Label Text="Message" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1"/>
+            </Grid>
 
-        <!-- Chatbox area -->
-        <Frame BackgroundColor="LightGray" HeightRequest="300" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <!-- Chatbox area -->
+            <Frame BackgroundColor="LightGray" HeightRequest="300" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
 
-        <!-- Message and Cancel buttons -->
-        <Grid Margin="0" Padding="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Text="message" BackgroundColor="Blue" WidthRequest="100" Grid.Column="0"/>
-            <Button Text="cancel" BackgroundColor="Red" WidthRequest="100" Grid.Column="1"/>
-        </Grid>
+            <!-- Message and Cancel buttons -->
+            <Grid Margin="0" Padding="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="message" BackgroundColor="Blue" WidthRequest="100" Grid.Column="0"/>
+                <Button Text="cancel" BackgroundColor="Red" WidthRequest="100" Grid.Column="1"/>
+            </Grid>
 
-        <!-- Bottom navigation buttons -->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
-            <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
-            <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
-            <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+            <!-- Bottom navigation buttons -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+                <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
+                <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
+                <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
+    </Grid>
 </ContentPage>

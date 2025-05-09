@@ -1,67 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.Views.LatestDrives"
              Title="LatestDrives">
 
-    <StackLayout Padding="10">
-        <!-- Top section with logo e texto -->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Image Source="logo.png" WidthRequest="50" HeightRequest="50"/>
-            <Label Text="Home" FontSize="24" VerticalOptions="Center"/>
-        </StackLayout>
+    <Grid>
+        <!-- Fundo: Imagem -->
+        <Image Source="logonoback.png"
+               Aspect="AspectFill"
+               Opacity="0.2"  
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
 
-        <!-- Heading -->
-        <Label Text="Latest drives" FontSize="20" HorizontalOptions="Center" Margin="10"/>
+        <StackLayout Padding="10">
+            <!-- Top section with logo e texto -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Home" FontSize="24" VerticalOptions="Center"/>
+            </StackLayout>
 
-        <!-- List of drives -->
-        <StackLayout>
-            <!-- Drive 1 -->
-            <StackLayout Orientation="Horizontal" Margin="5">
-                <Frame BackgroundColor="Gray" Padding="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,-450,0">
-                    <Label Text="drive 1" VerticalOptions="Center"/>
-                </Frame>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
-                    <Button Text="accept" BackgroundColor="Green" WidthRequest="100" Margin="5"/>
-                    <Button Text="decline" BackgroundColor="Red" WidthRequest="100" Margin="5"/>
+            <!-- Heading -->
+            <Label Text="Latest drives" FontSize="20" HorizontalOptions="Center" Margin="10"/>
+
+            <!-- List of drives -->
+            <StackLayout>
+                <!-- Drive 1 -->
+                <StackLayout Orientation="Horizontal" Margin="5">
+                    <Frame BackgroundColor="Gray" Padding="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,-450,0">
+                        <Label Text="drive 1" VerticalOptions="Center"/>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                        <Button Text="accept" BackgroundColor="Green" WidthRequest="100" Margin="5"/>
+                        <Button Text="decline" BackgroundColor="Red" WidthRequest="100" Margin="5"/>
+                    </StackLayout>
+                </StackLayout>
+                <!-- Drive 2 -->
+                <StackLayout Orientation="Horizontal" Margin="5">
+                    <Frame BackgroundColor="Gray" Padding="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,-450,0">
+                        <Label Text="drive 2" VerticalOptions="Center"/>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                        <Button Text="accept" BackgroundColor="Green" WidthRequest="100" Margin="5"/>
+                        <Button Text="decline" BackgroundColor="Red" WidthRequest="100" Margin="5"/>
+                    </StackLayout>
+                </StackLayout>
+                <!-- Drive 3 -->
+                <StackLayout Orientation="Horizontal" Margin="5">
+                    <Frame BackgroundColor="Gray" Padding="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,-450,0">
+                        <Label Text="drive 3" VerticalOptions="Center"/>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                        <Button Text="accept" BackgroundColor="Green" WidthRequest="100" Margin="5"/>
+                        <Button Text="decline" BackgroundColor="Red" WidthRequest="100" Margin="5"/>
+                    </StackLayout>
+                </StackLayout>
+                <!-- Drive 4 -->
+                <StackLayout Orientation="Horizontal" Margin="5">
+                    <Frame BackgroundColor="Gray" Padding="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,-450,0">
+                        <Label Text="drive 4" VerticalOptions="Center"/>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
+                        <Button Text="accept" BackgroundColor="Green" WidthRequest="100" Margin="5"/>
+                        <Button Text="decline" BackgroundColor="Red" WidthRequest="100" Margin="5"/>
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
-            <!-- Drive 2 -->
-            <StackLayout Orientation="Horizontal" Margin="5">
-                <Frame BackgroundColor="Gray" Padding="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,-450,0">
-                    <Label Text="drive 2" VerticalOptions="Center"/>
-                </Frame>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
-                    <Button Text="accept" BackgroundColor="Green" WidthRequest="100" Margin="5"/>
-                    <Button Text="decline" BackgroundColor="Red" WidthRequest="100" Margin="5"/>
-                </StackLayout>
-            </StackLayout>
-            <!-- Drive 3 -->
-            <StackLayout Orientation="Horizontal" Margin="5">
-                <Frame BackgroundColor="Gray" Padding="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,-450,0">
-                    <Label Text="drive 3" VerticalOptions="Center"/>
-                </Frame>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
-                    <Button Text="accept" BackgroundColor="Green" WidthRequest="100" Margin="5"/>
-                    <Button Text="decline" BackgroundColor="Red" WidthRequest="100" Margin="5"/>
-                </StackLayout>
-            </StackLayout>
-            <!-- Drive 4 -->
-            <StackLayout Orientation="Horizontal" Margin="5">
-                <Frame BackgroundColor="Gray" Padding="20" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,-450,0">
-                    <Label Text="drive 4" VerticalOptions="Center"/>
-                </Frame>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="Center">
-                    <Button Text="accept" BackgroundColor="Green" WidthRequest="100" Margin="5"/>
-                    <Button Text="decline" BackgroundColor="Red" WidthRequest="100" Margin="5"/>
-                </StackLayout>
+
+            <!-- Bottom navigation buttons -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+                <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
+                <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
+                <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
             </StackLayout>
         </StackLayout>
-
-        <!-- Bottom navigation buttons -->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
-            <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
-            <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
-            <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
-        </StackLayout>
-    </StackLayout>
+    </Grid>
 </ContentPage>

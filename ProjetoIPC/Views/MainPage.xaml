@@ -2,32 +2,37 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.MainPage">
-    
 
-    <StackLayout VerticalOptions="FillAndExpand">
-        <Image Source="Logo.png"
-                WidthRequest="60"
-                HeightRequest="60"
-                Margin="100,0,-800,0" />
-        <Frame HeightRequest="500" 
-               WidthRequest="600"
-               CornerRadius="10" 
-               Padding="0"
-               HasShadow="True"
-               VerticalOptions="StartAndExpand">
-            <WebView x:Name="mapWebView" 
-                     HorizontalOptions="Fill" 
-                     VerticalOptions="FillAndExpand"/>
-        </Frame>
-        
-        <Button Text="Submit" 
-                HorizontalOptions="Center" 
-                VerticalOptions="End"
-                BackgroundColor="Orange"
-                TextColor="White"
-                CornerRadius="10"
-                Margin="0,0,0,50"
-                Clicked="OnSubmitClicked"/>
-    </StackLayout>
+    <Grid>
+        <!-- Fundo: Imagem -->
+        <Image Source="logonoback.png"
+               Aspect="AspectFill"
+               Opacity="0.2"  
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
 
+            <!-- Conteúdo por cima da imagem -->
+            <StackLayout VerticalOptions="FillAndExpand" Padding="20">
+                <Frame HeightRequest="500" 
+                   WidthRequest="600"
+                   CornerRadius="10" 
+                   Padding="0"
+                   HasShadow="True"
+                   VerticalOptions="StartAndExpand">
+                    <WebView x:Name="mapWebView" 
+                         HorizontalOptions="Fill" 
+                         VerticalOptions="FillAndExpand"/>
+                </Frame>
+
+                <Button Text="Submit" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="End"
+                    BackgroundColor="Orange"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Margin="0,0,0,50"
+                    Clicked="OnSubmitClicked"/>
+            </StackLayout>
+    </Grid>
 </ContentPage>
+

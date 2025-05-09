@@ -3,102 +3,95 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.Views.Atividade"
              Title="Atividade"
-             BackgroundColor="White">
+             BackgroundColor="Transparent">
 
-    <VerticalStackLayout Padding="20" Spacing="20">
+    <Grid>
+        <!-- Imagem de fundo -->
+        <Image Source="logonoback.png"
+               Aspect="AspectFill"
+               Opacity="0.2"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
 
-        <!-- Título e logotipo -->
-        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
-            <Label Text="Activity"
-                   FontSize="24"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center" />
-            <Image Source="Logo.png"
-                   WidthRequest="60"
-                   HeightRequest="60"
-                   Margin="10,0,0,0" />
-        </HorizontalStackLayout>
+        <!-- Conteúdo sobre a imagem -->
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <!-- Título e logotipo -->
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <Label Text="Activity"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+                
+            </HorizontalStackLayout>
 
-        <!-- Subtítulo -->
-        <Label Text="Last drives"
-               FontSize="18"
-               HorizontalOptions="Center" />
-
-        <!-- Lista de Drives -->
-        <VerticalStackLayout Spacing="15">
-            <Frame CornerRadius="15"
-           BackgroundColor="#CCCCCC"
-           Padding="20"
-           x:Name="Drive1Frame">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding DriveTappedCommand}" CommandParameter="{x:Reference Drive1Frame}" />
-                </Frame.GestureRecognizers>
-                <VerticalStackLayout>
-                    <!-- Original Content -->
-                    <Label Text="drive 1"
+            <!-- Subtítulo -->
+            <Label Text="Last drives"
+                   FontSize="18"
                    HorizontalOptions="Center" />
 
-                    <!-- Dropdown Box -->
-                    <BoxView x:Name="Drive1Dropdown"
-                     BackgroundColor="White"
-                     CornerRadius="15"
-                     HeightRequest="100"
-                     IsVisible="False"
-                     Margin="0,10,0,0" />
-                </VerticalStackLayout>
-            </Frame>
+            <!-- Lista de Drives -->
+            <VerticalStackLayout Spacing="15">
+                <Frame CornerRadius="15"
+                       BackgroundColor="#CCCCCC"
+                       Padding="20"
+                       x:Name="Drive1Frame">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding DriveTappedCommand}" CommandParameter="{x:Reference Drive1Frame}" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout>
+                        <Label Text="drive 1" HorizontalOptions="Center" />
+                        <BoxView x:Name="Drive1Dropdown"
+                                 BackgroundColor="White"
+                                 CornerRadius="15"
+                                 HeightRequest="100"
+                                 IsVisible="False"
+                                 Margin="0,10,0,0" />
+                    </VerticalStackLayout>
+                </Frame>
 
-            <Frame CornerRadius="15"
-           BackgroundColor="#CCCCCC"
-           Padding="20"
-           x:Name="Drive2Frame">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding DriveTappedCommand}" CommandParameter="{x:Reference Drive2Frame}" />
-                </Frame.GestureRecognizers>
-                <VerticalStackLayout>
-                    <!-- Original Content -->
-                    <Label Text="drive 2"
-                   HorizontalOptions="Center" />
+                <Frame CornerRadius="15"
+                       BackgroundColor="#CCCCCC"
+                       Padding="20"
+                       x:Name="Drive2Frame">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding DriveTappedCommand}" CommandParameter="{x:Reference Drive2Frame}" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout>
+                        <Label Text="drive 2" HorizontalOptions="Center" />
+                        <BoxView x:Name="Drive2Dropdown"
+                                 BackgroundColor="White"
+                                 CornerRadius="15"
+                                 HeightRequest="100"
+                                 IsVisible="False"
+                                 Margin="0,10,0,0" />
+                    </VerticalStackLayout>
+                </Frame>
 
-                    <!-- Dropdown Box -->
-                    <BoxView x:Name="Drive2Dropdown"
-                     BackgroundColor="White"
-                     CornerRadius="15"
-                     HeightRequest="100"
-                     IsVisible="False"
-                     Margin="0,10,0,0" />
-                </VerticalStackLayout>
-            </Frame>
+                <Frame CornerRadius="15"
+                       BackgroundColor="#CCCCCC"
+                       Padding="20"
+                       x:Name="Drive3Frame">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding DriveTappedCommand}" CommandParameter="{x:Reference Drive3Frame}" />
+                    </Frame.GestureRecognizers>
+                    <VerticalStackLayout>
+                        <Label Text="drive 3" HorizontalOptions="Center" />
+                        <BoxView x:Name="Drive3Dropdown"
+                                 BackgroundColor="White"
+                                 CornerRadius="15"
+                                 HeightRequest="100"
+                                 IsVisible="False"
+                                 Margin="0,10,0,0" />
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
 
-            <Frame CornerRadius="15"
-           BackgroundColor="#CCCCCC"
-           Padding="20"
-           x:Name="Drive3Frame">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding DriveTappedCommand}" CommandParameter="{x:Reference Drive3Frame}" />
-                </Frame.GestureRecognizers>
-                <VerticalStackLayout>
-                    <!-- Original Content -->
-                    <Label Text="drive 3"
-                   HorizontalOptions="Center" />
-
-                    <!-- Dropdown Box -->
-                    <BoxView x:Name="Drive3Dropdown"
-                     BackgroundColor="White"
-                     CornerRadius="15"
-                     HeightRequest="100"
-                     IsVisible="False"
-                     Margin="0,10,0,0" />
-                </VerticalStackLayout>
-            </Frame>
+            <!-- Barra de Navegação Inferior -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+                <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
+                <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
+                <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+            </StackLayout>
         </VerticalStackLayout>
-
-        <!-- Barra de Navegação Inferior -->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
-            <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
-            <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
-            <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
-        </StackLayout>
-    </VerticalStackLayout>
-
+    </Grid>
 </ContentPage>

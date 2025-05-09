@@ -1,25 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.Views.DriveInfo"
              Title="DriveInfo">
 
-    <StackLayout Padding="10">
-        <!-- Top section with logo and text -->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Image Source="logo.png" WidthRequest="50" HeightRequest="50"/>
-            <Label Text="Activity" FontSize="24" VerticalOptions="Center"/>
-        </StackLayout>
+    <Grid>
+        <!-- Fundo: Imagem -->
+        <Image Source="logonoback.png"
+               Aspect="AspectFill"
+               Opacity="0.2"  
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
+        
+        <StackLayout Padding="10">
+            <!-- Top section with logo and text -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Activity" FontSize="24" VerticalOptions="Center"/>
+            </StackLayout>
 
-        <!-- Main content area -->
-        <Frame BackgroundColor="Gray" HeightRequest="500" HorizontalOptions="FillAndExpand">
-            <Label x:Name="enderecoLabel" HorizontalOptions="Center" VerticalOptions="Center"/>
-        </Frame>
+            <!-- Main content area -->
+            <Frame BackgroundColor="Gray" HeightRequest="500" HorizontalOptions="FillAndExpand">
+                <Label x:Name="enderecoLabel" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Frame>
 
-        <!-- Bottom navigation buttons -->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
-            <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
-            <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
-            <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+            <!-- Bottom navigation buttons -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+                <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
+                <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
+                <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
+    </Grid>
 </ContentPage>
