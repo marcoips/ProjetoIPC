@@ -29,6 +29,8 @@
 
             <!-- Upload sections -->
             <VerticalStackLayout Spacing="20">
+
+                <!-- Driver License -->
                 <Grid ColumnDefinitions="*,Auto">
                     <Label Text="Driver License"
                            BackgroundColor="Orange"
@@ -38,14 +40,22 @@
                            HeightRequest="40"
                            HorizontalOptions="Fill"
                            Margin="10"/>
-
-                    <Button Text="Upload"
-                            BackgroundColor="LightGray"
-                            Grid.Column="1"
-                            HeightRequest="40"
-                            WidthRequest="100"/>
+                    <VerticalStackLayout Grid.Column="1" Spacing="5">
+                        <Button x:Name="UploadDriverLicenseButton"
+                                Text="Upload"
+                                BackgroundColor="LightGray"
+                                HeightRequest="40"
+                                WidthRequest="100"
+                                Clicked="OnUploadDriverLicenseClicked"/>
+                        <Label x:Name="DriverLicenseFileNameLabel"
+                               Text=""
+                               FontSize="12"
+                               TextColor="Gray"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
                 </Grid>
 
+                <!-- Identity Card -->
                 <Grid ColumnDefinitions="*,Auto">
                     <Label Text="Identity Card"
                            BackgroundColor="Orange"
@@ -55,14 +65,22 @@
                            HeightRequest="40"
                            HorizontalOptions="Fill"
                            Margin="10"/>
-
-                    <Button Text="Upload"
-                            BackgroundColor="LightGray"
-                            Grid.Column="1"
-                            HeightRequest="40"
-                            WidthRequest="100"/>
+                    <VerticalStackLayout Grid.Column="1" Spacing="5">
+                        <Button x:Name="UploadIdentityCardButton"
+                                Text="Upload"
+                                BackgroundColor="LightGray"
+                                HeightRequest="40"
+                                WidthRequest="100"
+                                Clicked="OnUploadIdentityCardClicked"/>
+                        <Label x:Name="IdentityCardFileNameLabel"
+                               Text=""
+                               FontSize="12"
+                               TextColor="Gray"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
                 </Grid>
 
+                <!-- Vehicle Documents -->
                 <Grid ColumnDefinitions="*,Auto">
                     <Label Text="Vehicle Documents"
                            BackgroundColor="Orange"
@@ -72,13 +90,21 @@
                            HeightRequest="40"
                            HorizontalOptions="Fill"
                            Margin="10"/>
-
-                    <Button Text="Upload"
-                            BackgroundColor="LightGray"
-                            Grid.Column="1"
-                            HeightRequest="40"
-                            WidthRequest="100"/>
+                    <VerticalStackLayout Grid.Column="1" Spacing="5">
+                        <Button x:Name="UploadVehicleDocsButton"
+                                Text="Upload"
+                                BackgroundColor="LightGray"
+                                HeightRequest="40"
+                                WidthRequest="100"
+                                Clicked="OnUploadVehicleDocsClicked"/>
+                        <Label x:Name="VehicleDocsFileNameLabel"
+                               Text=""
+                               FontSize="12"
+                               TextColor="Gray"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
                 </Grid>
+
             </VerticalStackLayout>
 
             <!-- Submit button -->
