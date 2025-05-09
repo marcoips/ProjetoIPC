@@ -115,7 +115,8 @@
                     HeightRequest="45"
                     WidthRequest="200"
                     HorizontalOptions="Center"
-                    Margin="0,30,0,0"/>
+                    Margin="0,30,0,0"
+                    Clicked="OnSubmitApplicationClicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

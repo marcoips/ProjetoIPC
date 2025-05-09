@@ -1,6 +1,7 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Storage;
 
+
 namespace ProjetoIPC.Views;
 
 public partial class DriverApplicationPage : ContentPage
@@ -60,4 +61,13 @@ public partial class DriverApplicationPage : ContentPage
             Console.WriteLine($"Erro: {ex.Message}");
         }
     }
+
+    private async void OnSubmitApplicationClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Atividade");
+
+    }
+
+
+
 }

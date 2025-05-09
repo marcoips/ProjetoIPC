@@ -8,44 +8,45 @@
     Shell.FlyoutBehavior="Flyout"
     Title="ProjetoIPC">
 
-    <ShellContent
+    <TabBar>
+        <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
-    <ShellContent
+        <ShellContent
     Title="Driver Application"
     ContentTemplate="{DataTemplate views:DriverApplicationPage}"
     Route="DriverApplicationPage" />
 
-    <ShellContent
+        <ShellContent
     Title="Atividade"
     ContentTemplate="{DataTemplate views:Atividade}"
     Route="Atividade" />
 
-    <ShellContent
+        <ShellContent
     Title="Confirmation"
     ContentTemplate="{DataTemplate views:Confirmation}"
     Route="Confirmation" />
 
-    <ShellContent
+        <ShellContent
     Title="DriveInfo"
     ContentTemplate="{DataTemplate views:DriveInfo}"
     Route="DriveInfo" />
 
-    <ShellContent
+        <ShellContent
     Title="LatestDrives"
     ContentTemplate="{DataTemplate views:LatestDrives}"
     Route="LatestDrives" />
 
-    <ShellContent
+        <ShellContent
     Title="OngoingDrive"
     ContentTemplate="{DataTemplate views:OngoingDrive}"
     Route="OngoingDrive" />
 
-    <ShellContent
+        <ShellContent
     Title="Message"
     ContentTemplate="{DataTemplate views:Message}"
     Route="Message" />
-
+    </TabBar>
 </Shell>
