@@ -23,7 +23,7 @@
 
             <!-- Bottom buttons -->
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
-                <Button Text="message" BackgroundColor="Blue" WidthRequest="100" Margin="5"/>
+                <Button Text="message" BackgroundColor="Blue" WidthRequest="100" Margin="5" Clicked="MessageClicked"/>
                 <Button Text="cancel" BackgroundColor="Red" WidthRequest="100" Margin="5"/>
             </StackLayout>
 

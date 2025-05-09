@@ -31,7 +31,7 @@
                     <Entry Placeholder="Address"/>
                     <Entry Placeholder="Country"/>
                     <Entry Placeholder="City"/>
-                    <Button Text="Submit" BackgroundColor="Orange" TextColor="White"/>
+                    <Button Text="Submit" BackgroundColor="Orange" TextColor="White" Clicked="SubmitClick"/>
                 </StackLayout>
             </Grid>
         </StackLayout>

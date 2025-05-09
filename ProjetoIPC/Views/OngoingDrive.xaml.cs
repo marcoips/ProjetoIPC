@@ -45,4 +45,8 @@ public partial class OngoingDrive : ContentPage
     {
         Shell.Current.GoToAsync("Home");
     }
+    private void MessageClicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("///Message");
+    }
 }

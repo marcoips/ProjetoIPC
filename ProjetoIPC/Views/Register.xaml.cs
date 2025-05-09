@@ -13,6 +13,11 @@ namespace ProjetoIPC.Views
         {
             await Navigation.PopAsync();
         }
+
+        private async void SubmitClick(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new Login();
+        }
     }
 }
 
