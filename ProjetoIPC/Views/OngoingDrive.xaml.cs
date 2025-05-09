@@ -32,4 +32,17 @@ public partial class OngoingDrive : ContentPage
         using var reader = new StreamReader(stream);
         return await reader.ReadToEndAsync();
     }
+
+    private async void HomeClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("///MainPage");
+    }
+    private void ActivityClicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("///Atividade");
+    }
+    private void ProfileClicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("Home");
+    }
 }

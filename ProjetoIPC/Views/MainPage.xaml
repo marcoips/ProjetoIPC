@@ -2,12 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.MainPage">
+    
 
     <StackLayout VerticalOptions="FillAndExpand">
         <Image Source="Logo.png"
-WidthRequest="60"
-HeightRequest="60"
-Margin="100,0,-800,0" />
+                WidthRequest="60"
+                HeightRequest="60"
+                Margin="100,0,-800,0" />
         <Frame HeightRequest="500" 
                WidthRequest="600"
                CornerRadius="10" 
@@ -25,7 +26,8 @@ Margin="100,0,-800,0" />
                 BackgroundColor="Orange"
                 TextColor="White"
                 CornerRadius="10"
-                Margin="0,0,0,50"/>
+                Margin="0,0,0,50"
+                Clicked="OnSubmitClicked"/>
     </StackLayout>
 
 </ContentPage>

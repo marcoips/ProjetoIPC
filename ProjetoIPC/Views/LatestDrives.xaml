@@ -58,9 +58,9 @@
         </StackLayout>
 
         <!-- Bottom navigation buttons -->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="200">
-            <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
-            <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+            <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
+            <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
             <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
         </StackLayout>
     </StackLayout>

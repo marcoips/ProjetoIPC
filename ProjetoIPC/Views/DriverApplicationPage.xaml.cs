@@ -60,4 +60,10 @@ public partial class DriverApplicationPage : ContentPage
             Console.WriteLine($"Erro: {ex.Message}");
         }
     }
+
+    private async void OnSubmitApplicationClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Atividade");
+
+    }
 }

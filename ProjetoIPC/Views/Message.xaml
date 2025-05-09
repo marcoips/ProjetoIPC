@@ -33,15 +33,10 @@
         </Grid>
 
         <!-- Bottom navigation buttons -->
-        <Grid Margin="0" Padding="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Grid.Column="0"/>
-            <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Grid.Column="1"/>
-            <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Grid.Column="2"/>
-        </Grid>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+            <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
+            <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
+            <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5"/>
+        </StackLayout>
     </StackLayout>
 </ContentPage>

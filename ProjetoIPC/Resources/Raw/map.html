@@ -1,85 +1,75 @@
 ﻿<!DOCTYPE html>
-<html lang="pt">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title>Selecionar Origem e Destino com Endereço</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
     <style>
-        /* Cor e estilos para o corpo e html para usar toda a área */
-        html, body {
+        html, body, #map {
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* evita scroll desnecessário */
-            -webkit-user-select: none; /* desativa seleção no webview */
-            -webkit-touch-callout: none;
-        }
-        /* Div que conterá o mapa */
-        #map {
-            width: 100%;
-            height: 100%;
-        }
-        /* Estilo para o alerta e texto */
-        h1 {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            margin: 0;
-            padding: 5px 10px;
-            background: rgba(255, 255, 255, 0.9);
-            font-size: 1.2em;
-            z-index: 5;
-            border-radius: 4px;
-            font-family: Arial, sans-serif;
         }
     </style>
-</head>
-<body>
-
-    <div id="map"></div>
-
-    <!-- Atribuindo a função initMap ao window para garantir visibilidade global (necessário para callback) -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA89DtPad0zQSUx9syrMzj15LvWO1kEOXM"></script>
     <script>
         let map;
         let markers = [];
+        let geocoder;
 
         function initMap() {
+            geocoder = new google.maps.Geocoder();
+
             map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: -23.55052, lng: -46.633308 },
-                zoom: 12,
-                gestureHandling: "greedy" // permite contato suave no mobile
+                center: { lat: 39.3999, lng: -8.2245 }, // centro de Portugal
+                zoom: 7,
             });
 
-            map.addListener("click", (event) => {
-                if (markers.length < 2) {
-                    addMarker(event.latLng);
-                } else {
-                    alert("Você já selecionou origem e destino.");
+            map.addListener("click", (e) => {
+                if (markers.length >= 2) {
+                    alert("Já selecionou origem e destino.");
+                    return;
                 }
+
+                const label = markers.length === 0 ? "A" : "B";
+                const title = markers.length === 0 ? "Origem" : "Destino";
+
+                const marker = new google.maps.Marker({
+                    position: e.latLng,
+                    map: map,
+                    label: label,
+                    title: title
+                });
+
+                markers.push(marker);
+
+                // Reverse geocode
+                geocoder.geocode({ location: e.latLng }, (results, status) => {
+                    if (status === "OK" && results[0]) {
+                        const address = results[0].formatted_address;
+                        console.log(title + ": " + address);
+
+                        // Envia para o C# quando os dois pontos forem definidos
+                        if (markers.length === 2) {
+                            const origem = markers[0].getTitle() === "Origem" ? address : null;
+                            const destino = markers[1].getTitle() === "Destino" ? address : null;
+
+                            // Espera um momento para resolver os dois endereços
+                            setTimeout(() => {
+                                const url = `coords://set?origem=${encodeURIComponent(origem)}&destino=${encodeURIComponent(destino)}`;
+                                window.location.href = url;
+                            }, 500);
+                        }
+                    } else {
+                        alert("Erro ao obter endereço: " + status);
+                    }
+                });
             });
         }
-
-        function addMarker(location) {
-            const marker = new google.maps.Marker({
-                position: location,
-                map: map
-            });
-            markers.push(marker);
-
-            if (markers.length === 2) {
-                const origin = markers[0].getPosition();
-                const destination = markers[1].getPosition();
-                alert(`Origem: ${origin.lat()}, ${origin.lng()} \nDestino: ${destination.lat()}, ${destination.lng()}`);
-            }
-        }
-
-        window.initMap = initMap;
     </script>
 
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA89DtPad0zQSUx9syrMzj15LvWO1kEOXM&callback=initMap">
-    </script>
-
+</head>
+<body onload="initMap()">
+    <div id="map"></div>
 </body>
 </html>
-
