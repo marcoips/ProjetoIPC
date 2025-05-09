@@ -1,0 +1,47 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetoIPC.Views.Message"
+             Title="Message">
+
+    <StackLayout Padding="10">
+        <!-- Top section with back arrow, title, and logo -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="←" BackgroundColor="Red" WidthRequest="50" HeightRequest="50" Grid.Column="0"/>
+            <Label Text="Message" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1"/>
+            <Image Source="logo.png" WidthRequest="50" HeightRequest="50" Grid.Column="2"/>
+        </Grid>
+
+        <!-- Heading -->
+        <Label Text="Drive 1" FontSize="20" HorizontalOptions="Center" Margin="10"/>
+
+        <!-- Chatbox area -->
+        <Frame BackgroundColor="LightGray" HeightRequest="300" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+        <!-- Message and Cancel buttons -->
+        <Grid Margin="0" Padding="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="message" BackgroundColor="Blue" WidthRequest="100" Grid.Column="0"/>
+            <Button Text="cancel" BackgroundColor="Red" WidthRequest="100" Grid.Column="1"/>
+        </Grid>
+
+        <!-- Bottom navigation buttons -->
+        <Grid Margin="0" Padding="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Grid.Column="0"/>
+            <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Grid.Column="1"/>
+            <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Grid.Column="2"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>
