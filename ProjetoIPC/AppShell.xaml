@@ -33,5 +33,9 @@
     ContentTemplate="{DataTemplate views:DriveInfo}"
     Route="DriveInfo" />
 
+    <ShellContent
+    Title="LatestDrives"
+    ContentTemplate="{DataTemplate views:LatestDrives}"
+    Route="LatestDrives" />
 
 </Shell>
