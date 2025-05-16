@@ -10,20 +10,99 @@
             margin: 0;
             padding: 0;
         }
+
+        #instructions {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            z-index: 100;
+        }
+
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            z-index: 100;
+        }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA89DtPad0zQSUx9syrMzj15LvWO1kEOXM"></script>
     <script>
         let map;
         let markers = [];
         let geocoder;
+        let userPosition = null;
 
         function initMap() {
             geocoder = new google.maps.Geocoder();
 
+            // Mostra mensagem de carregamento
+            const loadingDiv = document.createElement('div');
+            loadingDiv.id = 'loading';
+            loadingDiv.textContent = 'A obter a sua localização...';
+            document.body.appendChild(loadingDiv);
+
+            // Tenta obter a localização do usuário
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        userPosition = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+                        setupMap(userPosition);
+                        loadingDiv.remove();
+                    },
+                    (error) => {
+                        console.error("Erro ao obter localização: ", error);
+                        // Usa localização padrão (centro de Portugal) se falhar
+                        userPosition = { lat: 39.3999, lng: -8.2245 };
+                        setupMap(userPosition);
+                        loadingDiv.textContent = 'Não foi possível obter a sua localização. Mostrando mapa de Portugal.';
+                        setTimeout(() => loadingDiv.remove(), 3000);
+                    },
+                    { timeout: 10000 } // Timeout após 10 segundos
+                );
+            } else {
+                // Navegador não suporta geolocalização
+                userPosition = { lat: 39.3999, lng: -8.2245 };
+                setupMap(userPosition);
+                loadingDiv.textContent = 'Geolocalização não suportada. Mostrando mapa de Portugal.';
+                setTimeout(() => loadingDiv.remove(), 3000);
+            }
+        }
+
+        function setupMap(center) {
             map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: 39.3999, lng: -8.2245 }, // centro de Portugal
-                zoom: 7,
+                center: center,
+                zoom: 14, // Zoom mais próximo para a localização atual
+                gestureHandling: "greedy"
             });
+
+            // Adiciona marcador da localização atual
+            if (userPosition) {
+                new google.maps.Marker({
+                    position: userPosition,
+                    map: map,
+                    label: "Você",
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        scale: 8,
+                        fillColor: "#4285F4",
+                        fillOpacity: 1,
+                        strokeWeight: 2,
+                        strokeColor: "white"
+                    }
+                });
+            }
 
             map.addListener("click", (e) => {
                 if (markers.length >= 2) {
@@ -49,12 +128,10 @@
                         const address = results[0].formatted_address;
                         console.log(title + ": " + address);
 
-                        // Envia para o C# quando os dois pontos forem definidos
                         if (markers.length === 2) {
                             const origem = markers[0].getTitle() === "Origem" ? address : null;
                             const destino = markers[1].getTitle() === "Destino" ? address : null;
 
-                            // Espera um momento para resolver os dois endereços
                             setTimeout(() => {
                                 const url = `coords://set?origem=${encodeURIComponent(origem)}&destino=${encodeURIComponent(destino)}`;
                                 window.location.href = url;
@@ -67,9 +144,9 @@
             });
         }
     </script>
-
 </head>
 <body onload="initMap()">
     <div id="map"></div>
+    <div id="instructions">Clique no mapa para selecionar origem (A) e destino (B)</div>
 </body>
 </html>

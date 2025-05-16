@@ -1,6 +1,8 @@
 ﻿using Microsoft.Maui.Controls;
-using ProjetoIPC.Models; // Certifique-se de usar o namespace correto
+using Microsoft.Maui.Devices.Sensors;
+using ProjetoIPC.Models;
 using System;
+using System.Threading.Tasks;
 
 namespace ProjetoIPC
 {
@@ -9,7 +11,37 @@ namespace ProjetoIPC
         public MainPage()
         {
             InitializeComponent();
-            LoadMap();
+            CheckAndRequestLocationPermission();
+        }
+
+        private async void CheckAndRequestLocationPermission()
+        {
+            try
+            {
+                var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+
+                if (status != PermissionStatus.Granted)
+                {
+                    status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+                }
+
+                if (status == PermissionStatus.Granted)
+                {
+                    LoadMap();
+                }
+                else
+                {
+                    await DisplayAlert("Permissão necessária",
+                        "A permissão de localização é necessária para centralizar o mapa na sua posição atual.",
+                        "OK");
+                    LoadMap(); // Carrega mesmo sem permissão
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro na permissão: {ex.Message}");
+                LoadMap(); // Carrega mesmo com erro
+            }
         }
 
         private async void LoadMap()
@@ -19,8 +51,6 @@ namespace ProjetoIPC
                 var htmlSource = new HtmlWebViewSource();
                 htmlSource.Html = await LoadHtmlFromAsset();
                 mapWebView.Source = htmlSource;
-
-                // Adiciona o evento para interceptar as URLs
                 mapWebView.Navigating += MapWebView_Navigating;
             }
             catch (Exception ex)
@@ -36,28 +66,24 @@ namespace ProjetoIPC
             return await reader.ReadToEndAsync();
         }
 
-        // Método que intercepta as URLs e armazena os dados na CoordenadasStore
         private void MapWebView_Navigating(object sender, WebNavigatingEventArgs e)
         {
             if (e.Url.StartsWith("coords://set"))
             {
                 e.Cancel = true;
-
                 var uri = new Uri(e.Url);
                 var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
 
-                var origem = query["origem"];
-                var destino = query["destino"];
+                var origem = query["origem"] ?? string.Empty;
+                var destino = query["destino"] ?? string.Empty;
 
                 CoordenadasStore.EnderecoOrigem = Uri.UnescapeDataString(origem);
                 CoordenadasStore.EnderecoDestino = Uri.UnescapeDataString(destino);
 
-                // Após salvar, podemos navegar para outra página ou exibir os dados.
                 Application.Current.MainPage = new AppShell();
             }
         }
 
-        // Método do botão Submit para garantir que as coordenadas foram definidas
         private void OnSubmitClicked(object sender, EventArgs e)
         {
             var origem = CoordenadasStore.EnderecoOrigem;
@@ -69,14 +95,7 @@ namespace ProjetoIPC
                 return;
             }
 
-            var horaDoSubmit = DateTime.Now.ToString("HH:mm:ss");
-
-            CoordenadasStore.HoraSubmit = horaDoSubmit;
-
-            DisplayAlert("Endereços selecionados",
-                         $"Origem: {origem}\nDestino: {destino}", "OK");
-
-            
+            CoordenadasStore.HoraSubmit = DateTime.Now.ToString("HH:mm:ss");
             Application.Current.MainPage = new AppShell();
         }
     }
