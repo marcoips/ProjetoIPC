@@ -14,9 +14,9 @@
             <!-- Logo -->
             <Image Source="logo.png" HeightRequest="120" WidthRequest="120" HorizontalOptions="Center"/>
             <!-- Login input -->
-            <Entry Placeholder="Login" x:Name="LoginEntry" />
+            <Entry Placeholder="Login" x:Name="LoginEntry" TextColor="Black" />
             <!-- Password input -->
-            <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry" />
+            <Entry Placeholder="Password" IsPassword="True" x:Name="PasswordEntry" TextColor="Black" />
             <!-- Forgot Password -->
             <Label Text="Forgot password?" TextColor="LightSkyBlue" HorizontalOptions="End" />
             <!-- Login Button -->

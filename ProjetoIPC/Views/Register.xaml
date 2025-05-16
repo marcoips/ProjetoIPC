@@ -22,15 +22,15 @@
                 <Image Source="logo.png" Grid.Row="0" Grid.Column="2" HorizontalOptions="End" WidthRequest="40" HeightRequest="40"/>
 
                 <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Spacing="10">
-                    <Entry Placeholder="Login"/>
-                    <Entry Placeholder="Password" IsPassword="True"/>
-                    <Entry Placeholder="Email"/>
-                    <Entry Placeholder="Name"/>
-                    <DatePicker/>
-                    <Entry Placeholder="Phone"/>
-                    <Entry Placeholder="Address"/>
-                    <Entry Placeholder="Country"/>
-                    <Entry Placeholder="City"/>
+                    <Entry Placeholder="Login" x:Name="UsernameEntry"/>
+                    <Entry Placeholder="Password" x:Name="PasswordEntry" IsPassword="True"/>
+                    <Entry Placeholder="Email" x:Name="EmailEntry"/>
+                    <Entry Placeholder="Name" x:Name="NameEntry"/>
+                    <DatePicker x:Name="DOBPicker"/>
+                    <Entry Placeholder="Phone" x:Name="PhoneEntry"/>
+                    <Entry Placeholder="Address" x:Name="AddressEntry"/>
+                    <Entry Placeholder="Country" x:Name="CountryEntry"/>
+                    <Entry Placeholder="City" x:Name="CityEntry"/>
                     <Button Text="Submit" BackgroundColor="Orange" TextColor="White" Clicked="SubmitClick"/>
                 </StackLayout>
             </Grid>
