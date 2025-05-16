@@ -34,24 +34,23 @@
 
         <!-- Campos do formulário -->
         <StackLayout Spacing="10">
-            <Entry Placeholder="Type" />
-            <Entry Placeholder="Email" Keyboard="Email" />
-            <Entry Placeholder="Name" />
-            <Entry Placeholder="Birthday" />
-            <Entry Placeholder="Phone" Keyboard="Telephone" />
-            <Entry Placeholder="Address" />
-            <Entry Placeholder="Country" />
-            <Entry Placeholder="City" />
+            <Entry Placeholder="Email" x:Name="EmailEntry" />
+            <Entry Placeholder="Name" x:Name="NameEntry" />
+            <Entry Placeholder="Birthday" x:Name="BirthdayEntry" />
+            <Entry Placeholder="Phone" x:Name="PhoneEntry" />
+            <Entry Placeholder="Address" x:Name="AddressEntry" />
+            <Entry Placeholder="Country" x:Name="CountryEntry" />
+            <Entry Placeholder="City" x:Name="CityEntry" />
 
-            <Picker Title="Condition">
+            <Picker Title="Condition" x:Name="ConditionPicker">
                 <Picker.Items>
                     <x:String>Cego</x:String>
                     <x:String>Surdo</x:String>
                     <x:String>Mudo</x:String>
                 </Picker.Items>
-                <Picker.SelectedIndex>1</Picker.SelectedIndex>
             </Picker>
         </StackLayout>
+
 
 
         <!-- Barra de navegação inferior corrigida -->

@@ -1,4 +1,5 @@
 using ProjetoIPC.Models;
+using ProjetoIPC.Services;
 
 namespace ProjetoIPC.Views;
 
@@ -30,9 +31,10 @@ public partial class Login : ContentPage
         var user = await App.Database.GetUserAsync(username, password);
 
         if (user != null)
-        {
+        {   
+            Session.CurrentUser = user;
             await DisplayAlert("Sucesso", "Login realizado com sucesso!", "OK");
-
+            
             // Redireciona para a AppShell (ou outra página principal)
             Application.Current.MainPage = new AppShell();
         }
