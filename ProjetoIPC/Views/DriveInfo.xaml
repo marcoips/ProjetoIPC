@@ -2,35 +2,35 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.Views.DriveInfo"
-             Title="DriveInfo">
+             Title="Drive Info"
+             BackgroundColor="Transparent">
 
     <Grid>
-        <!-- Fundo: Imagem -->
+        <!-- Imagem de fundo -->
         <Image Source="logonoback.png"
                Aspect="AspectFill"
-               Opacity="0.2"  
+               Opacity="0.2"
                HorizontalOptions="Fill"
                VerticalOptions="Fill" />
-        
-        <StackLayout Padding="10">
-            <!-- Top section with logo and text -->
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="Activity" FontSize="24" VerticalOptions="Center"/>
-            </StackLayout>
 
-            <!-- Main content area -->
-            <Frame  HeightRequest="500" HorizontalOptions="FillAndExpand">
-                <ScrollView>
-                    <StackLayout x:Name="TripsStack" Padding="10"/>
-                </ScrollView>
-            </Frame>
+        <!-- Conteúdo sobre a imagem -->
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="20">
+                <Label Text="Viagens Aceites"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
 
-            <!-- Bottom navigation buttons -->
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
-                <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
-                <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
-                <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ProfileClicked"/>
-            </StackLayout>
-        </StackLayout>
+                <!-- Lista dinâmica de viagens aceites -->
+                <VerticalStackLayout x:Name="TripsStack" Spacing="15" />
+
+                <!-- Barra de Navegação Inferior -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+                    <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
+                    <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
+                    <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ProfileClicked"/>
+                </StackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
     </Grid>
 </ContentPage>

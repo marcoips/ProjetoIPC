@@ -42,7 +42,7 @@
     Route="Confirmation" />
 
         <ShellContent
-    Title="DriveInfo"
+    Title="Drives"
     ContentTemplate="{DataTemplate views:DriveInfo}"
     Route="DriveInfo" />
 

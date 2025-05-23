@@ -1,3 +1,5 @@
+﻿using ProjetoIPC.Models;
+using ProjetoIPC.Services;
 using System.Windows.Input;
 
 namespace ProjetoIPC.Views
@@ -12,41 +14,62 @@ namespace ProjetoIPC.Views
         {
             InitializeComponent();
 
-            // Define the command logic
-            DriveTappedCommand = new Command<Frame>(OnDriveTapped);
+            
 
             // Bind the command to the page's BindingContext
             BindingContext = this;
         }
 
-        private void OnDriveTapped(Frame tappedFrame)
+        protected override async void OnAppearing()
         {
-            // Hide all dropdowns
-            Drive1Dropdown.IsVisible = false;
-            Drive2Dropdown.IsVisible = false;
-            Drive3Dropdown.IsVisible = false;
+            base.OnAppearing();
+            await LoadAllUserDrives();
+        }
 
-            // If the tapped frame is already expanded, collapse it
-            if (_lastTappedFrame == tappedFrame)
+        private async Task LoadAllUserDrives()
+        {
+            DrivesStack.Children.Clear();
+
+            var userId = Session.CurrentUser?.Id;
+            if (userId == null)
             {
-                _lastTappedFrame = null; // Clear the last tapped frame
+                DrivesStack.Children.Add(new Label { Text = "Nenhum utilizador autenticado.", HorizontalOptions = LayoutOptions.Center });
                 return;
             }
 
-            // Show the dropdown for the tapped frame
-            if (tappedFrame == Drive1Frame)
-                Drive1Dropdown.IsVisible = true;
-            else if (tappedFrame == Drive2Frame)
-                Drive2Dropdown.IsVisible = true;
-            else if (tappedFrame == Drive3Frame)
-                Drive3Dropdown.IsVisible = true;
+            var trips = (await App.Database.GetTripsOrderedByDateAsync())
+                .Where(t => t.UserId == userId)
+                .ToList();
 
-            _lastTappedFrame = tappedFrame; // Track the tapped frame
+            if (trips.Count == 0)
+            {
+                DrivesStack.Children.Add(new Label { Text = "Nenhuma viagem encontrada.", HorizontalOptions = LayoutOptions.Center });
+                return;
+            }
+
+            foreach (var trip in trips)
+            {
+                var frame = new Frame
+                {
+                    BackgroundColor = Colors.LightGray,
+                    CornerRadius = 10,
+                    Padding = 15,
+                    Margin = new Thickness(0, 0, 0, 10),
+                    Content = new Label
+                    {
+                        Text = $"{trip.Origem} → {trip.Destino}\nData: {trip.HoraSubmit}\nEstado: {trip.Status}",
+                        FontSize = 16
+                    }
+                };
+                DrivesStack.Children.Add(frame);
+            }
         }
+
+        
 
         private async void HomeClicked(object sender, EventArgs e)
         {
-           await Shell.Current.GoToAsync("///MainPage");
+            await Shell.Current.GoToAsync("///MainPage");
         }
         private void ActivityClicked(object sender, EventArgs e)
         {

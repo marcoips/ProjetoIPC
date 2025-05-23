@@ -2,34 +2,35 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.Views.LatestDrives"
-             Title="LatestDrives">
+             Title="Latest Drives"
+             BackgroundColor="Transparent">
 
     <Grid>
-        <!-- Fundo: Imagem -->
+        <!-- Imagem de fundo -->
         <Image Source="logonoback.png"
                Aspect="AspectFill"
-               Opacity="0.2"  
+               Opacity="0.2"
                HorizontalOptions="Fill"
                VerticalOptions="Fill" />
 
-        <StackLayout Padding="10">
-            <!-- Top section with logo e texto -->
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="Home" FontSize="24" VerticalOptions="Center"/>
-            </StackLayout>
+        <!-- Conteúdo sobre a imagem -->
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="20">
+                <Label Text="Viagens por Aceitar"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
 
-            <!-- Heading -->
-            <Label Text="Latest drives" FontSize="20" HorizontalOptions="Center" Margin="10"/>
+                <!-- Lista dinâmica de viagens por aceitar -->
+                <VerticalStackLayout x:Name="DrivesStack" Spacing="15" />
 
-            <!-- List of drives -->
-            <StackLayout x:Name="DrivesStack" />
-
-            <!-- Bottom navigation buttons -->
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
-                <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
-                <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
-                <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ProfileClicked"/>
-            </StackLayout>
-        </StackLayout>
+                <!-- Barra de Navegação Inferior -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+                    <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
+                    <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
+                    <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ProfileClicked"/>
+                </StackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
     </Grid>
 </ContentPage>
