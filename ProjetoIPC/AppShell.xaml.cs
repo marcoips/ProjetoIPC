@@ -22,5 +22,15 @@ namespace ProjetoIPC
                 LatestDrivesMenu.IsVisible = false;
             }
         }
+
+        private async void OnLogoutClicked(object sender, EventArgs e)
+        {
+            // Limpa a sessão do usuário
+            ProjetoIPC.Services.Session.CurrentUser = null;
+
+            // Redireciona para a tela de login
+            Application.Current.MainPage = new NavigationPage(new ProjetoIPC.Views.Login());
+        }
+
     }
 }

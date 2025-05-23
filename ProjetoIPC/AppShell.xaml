@@ -17,7 +17,14 @@
     Shell.TabBarTitleColor="{StaticResource Primary}"
     Shell.TabBarUnselectedColor="Gray">
 
-    
+
+    <Shell.ToolbarItems>
+        <ToolbarItem Text="Logout"
+                 Order="Primary"
+                 Priority="100"
+                 Clicked="OnLogoutClicked"/>
+    </Shell.ToolbarItems>
+
     <TabBar>
         <ShellContent
         Title="Home"
