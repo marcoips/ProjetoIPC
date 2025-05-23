@@ -41,9 +41,9 @@ public partial class OngoingDrive : ContentPage
     {
         Shell.Current.GoToAsync("///Atividade");
     }
-    private void ProfileClicked(object sender, EventArgs e)
+    private async void ProfileClicked(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync("Home");
+        await Shell.Current.GoToAsync("//Profile");
     }
     private void MessageClicked(object sender, EventArgs e)
     {

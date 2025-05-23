@@ -52,9 +52,9 @@ namespace ProjetoIPC.Views
         {
             Shell.Current.GoToAsync("///Atividade");
         }
-        private void ProfileClicked(object sender, EventArgs e)
+        private async void ProfileClicked(object sender, EventArgs e)
         {
-            Shell.Current.GoToAsync("Home");
+            await Shell.Current.GoToAsync("//Profile");
         }
     }
 }

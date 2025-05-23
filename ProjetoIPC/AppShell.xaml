@@ -25,11 +25,6 @@
         Route="MainPage" />
 
         <ShellContent
-    Title="Driver Application"
-    ContentTemplate="{DataTemplate views:DriverApplicationPage}"
-    Route="DriverApplicationPage" />
-
-        <ShellContent
     Title="Atividade"
     ContentTemplate="{DataTemplate views:Atividade}"
     Route="Atividade" />

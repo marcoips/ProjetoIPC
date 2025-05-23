@@ -67,4 +67,9 @@ public partial class DriverApplicationPage : ContentPage
         await Shell.Current.GoToAsync("//Atividade");
 
     }
+
+    private async void OnBackButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Profile");
+    }
 }

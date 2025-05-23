@@ -13,114 +13,119 @@
                HorizontalOptions="Fill"
                VerticalOptions="Fill" />
 
-        
-        <StackLayout Padding="20" Spacing="20" HorizontalOptions="Center" VerticalOptions="FillAndExpand">
+        <!-- Botão de voltar no canto superior esquerdo -->
+        <Button Text="←"
+                BackgroundColor="Red"
+                TextColor="White"
+                WidthRequest="50"
+                HeightRequest="50"
+                CornerRadius="25"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                Margin="20,40,0,0"
+                Clicked="OnBackButtonClicked"
+                ZIndex="1"/>
 
-            <!-- Top bar -->
-            <Grid ColumnDefinitions="Auto,*,Auto">
-                <ImageButton Source="back_arrow.png"
-                             WidthRequest="30"
-                             HeightRequest="30"/>
-                <Label Text=""
-                       Grid.Column="1"/>
-            </Grid>
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="20" HorizontalOptions="Center" VerticalOptions="FillAndExpand">
 
-            <!-- Title -->
-            <Label Text="Driver Application"
-                   FontSize="24"
-                   HorizontalOptions="Center"
-                   FontAttributes="Bold"/>
+                <!-- Título -->
+                <Label Text="Driver Application"
+                       FontSize="24"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"/>
 
-            <!-- Upload sections -->
-            <VerticalStackLayout Spacing="20">
+                <!-- Upload sections -->
+                <VerticalStackLayout Spacing="20">
 
-                <!-- Driver License -->
-                <Grid ColumnDefinitions="*,Auto">
-                    <Label Text="Driver License"
-                           BackgroundColor="Orange"
-                           Padding="10"
-                           FontSize="14"
-                           VerticalTextAlignment="Center"
-                           HeightRequest="40"
-                           HorizontalOptions="Fill"
-                           Margin="10"/>
-                    <VerticalStackLayout Grid.Column="1" Spacing="5">
-                        <Button x:Name="UploadDriverLicenseButton"
-                                Text="Upload"
-                                BackgroundColor="LightGray"
-                                HeightRequest="40"
-                                WidthRequest="100"
-                                Clicked="OnUploadDriverLicenseClicked"/>
-                        <Label x:Name="DriverLicenseFileNameLabel"
-                               Text=""
-                               FontSize="12"
-                               TextColor="Gray"
-                               HorizontalOptions="Center"/>
-                    </VerticalStackLayout>
-                </Grid>
+                    <!-- Driver License -->
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Driver License"
+                               BackgroundColor="Orange"
+                               Padding="10"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"
+                               HeightRequest="40"
+                               HorizontalOptions="Fill"
+                               Margin="10"/>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Button x:Name="UploadDriverLicenseButton"
+                                    Text="Upload"
+                                    BackgroundColor="LightGray"
+                                    HeightRequest="40"
+                                    WidthRequest="100"
+                                    Clicked="OnUploadDriverLicenseClicked"/>
+                            <Label x:Name="DriverLicenseFileNameLabel"
+                                   Text=""
+                                   FontSize="12"
+                                   TextColor="Gray"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Grid>
 
-                <!-- Identity Card -->
-                <Grid ColumnDefinitions="*,Auto">
-                    <Label Text="Identity Card"
-                           BackgroundColor="Orange"
-                           Padding="10"
-                           FontSize="14"
-                           VerticalTextAlignment="Center"
-                           HeightRequest="40"
-                           HorizontalOptions="Fill"
-                           Margin="10"/>
-                    <VerticalStackLayout Grid.Column="1" Spacing="5">
-                        <Button x:Name="UploadIdentityCardButton"
-                                Text="Upload"
-                                BackgroundColor="LightGray"
-                                HeightRequest="40"
-                                WidthRequest="100"
-                                Clicked="OnUploadIdentityCardClicked"/>
-                        <Label x:Name="IdentityCardFileNameLabel"
-                               Text=""
-                               FontSize="12"
-                               TextColor="Gray"
-                               HorizontalOptions="Center"/>
-                    </VerticalStackLayout>
-                </Grid>
+                    <!-- Identity Card -->
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Identity Card"
+                               BackgroundColor="Orange"
+                               Padding="10"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"
+                               HeightRequest="40"
+                               HorizontalOptions="Fill"
+                               Margin="10"/>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Button x:Name="UploadIdentityCardButton"
+                                    Text="Upload"
+                                    BackgroundColor="LightGray"
+                                    HeightRequest="40"
+                                    WidthRequest="100"
+                                    Clicked="OnUploadIdentityCardClicked"/>
+                            <Label x:Name="IdentityCardFileNameLabel"
+                                   Text=""
+                                   FontSize="12"
+                                   TextColor="Gray"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Grid>
 
-                <!-- Vehicle Documents -->
-                <Grid ColumnDefinitions="*,Auto">
-                    <Label Text="Vehicle Documents"
-                           BackgroundColor="Orange"
-                           Padding="10"
-                           FontSize="14"
-                           VerticalTextAlignment="Center"
-                           HeightRequest="40"
-                           HorizontalOptions="Fill"
-                           Margin="10"/>
-                    <VerticalStackLayout Grid.Column="1" Spacing="5">
-                        <Button x:Name="UploadVehicleDocsButton"
-                                Text="Upload"
-                                BackgroundColor="LightGray"
-                                HeightRequest="40"
-                                WidthRequest="100"
-                                Clicked="OnUploadVehicleDocsClicked"/>
-                        <Label x:Name="VehicleDocsFileNameLabel"
-                               Text=""
-                               FontSize="12"
-                               TextColor="Gray"
-                               HorizontalOptions="Center"/>
-                    </VerticalStackLayout>
-                </Grid>
+                    <!-- Vehicle Documents -->
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Vehicle Documents"
+                               BackgroundColor="Orange"
+                               Padding="10"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"
+                               HeightRequest="40"
+                               HorizontalOptions="Fill"
+                               Margin="10"/>
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Button x:Name="UploadVehicleDocsButton"
+                                    Text="Upload"
+                                    BackgroundColor="LightGray"
+                                    HeightRequest="40"
+                                    WidthRequest="100"
+                                    Clicked="OnUploadVehicleDocsClicked"/>
+                            <Label x:Name="VehicleDocsFileNameLabel"
+                                   Text=""
+                                   FontSize="12"
+                                   TextColor="Gray"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Grid>
 
-            </VerticalStackLayout>
+                </VerticalStackLayout>
 
-            <!-- Submit button -->
-            <Button Text="Submit Application"
-                    BackgroundColor="Gray"
-                    TextColor="White"
-                    CornerRadius="20"
-                    HeightRequest="45"
-                    WidthRequest="200"
-                    HorizontalOptions="Center"
-                    Margin="0,30,0,0"
-                    Clicked="OnSubmitApplicationClicked"/>
-        </StackLayout>
+                <!-- Submit button -->
+                <Button Text="Submit Application"
+                        BackgroundColor="Gray"
+                        TextColor="White"
+                        CornerRadius="20"
+                        HeightRequest="45"
+                        WidthRequest="200"
+                        HorizontalOptions="Center"
+                        Margin="0,30,0,0"
+                        Clicked="OnSubmitApplicationClicked"/>
+            </StackLayout>
+        </ScrollView>
     </Grid>
 </ContentPage>

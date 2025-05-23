@@ -30,7 +30,8 @@
                 BackgroundColor="Orange"
                 TextColor="White"
                 CornerRadius="10"
-                HeightRequest="45" />
+                HeightRequest="45" 
+                Clicked="OnApplyButtonClicked"/>
 
         <!-- Campos do formulário -->
         <StackLayout Spacing="10">
@@ -64,12 +65,14 @@
             <Button Text="Home"
                     BackgroundColor="Orange"
                     TextColor="White"
-                    Grid.Column="0" />
+                    Grid.Column="0" 
+                    Clicked="HomeClicked"/>
 
             <Button Text="Activity"
                     BackgroundColor="Orange"
                     TextColor="White"
-                    Grid.Column="1" />
+                    Grid.Column="1" 
+                    Clicked="ActivityClicked"/>
 
             <Button Text="Profile"
                     BackgroundColor="Orange"

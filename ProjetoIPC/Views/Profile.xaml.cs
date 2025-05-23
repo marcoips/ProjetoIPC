@@ -1,5 +1,6 @@
 using ProjetoIPC.Models;
 using ProjetoIPC.Services;
+using ProjetoIPC.Views;
 
 namespace ProjetoIPC.Views
 {
@@ -33,6 +34,20 @@ namespace ProjetoIPC.Views
             AddressEntry.Text = user.Address;
             CountryEntry.Text = user.Country;
             CityEntry.Text = user.City;
+        }
+
+        private async void OnApplyButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DriverApplicationPage());
+        }
+
+        private async void HomeClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("///MainPage");
+        }
+        private void ActivityClicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync("///Atividade");
         }
     }
 
