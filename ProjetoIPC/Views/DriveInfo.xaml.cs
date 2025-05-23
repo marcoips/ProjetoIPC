@@ -1,5 +1,5 @@
-using Microsoft.Maui.Controls;
-using ProjetoIPC.Models;
+﻿using ProjetoIPC.Models;
+using ProjetoIPC.Services;
 
 namespace ProjetoIPC.Views;
 
@@ -8,10 +8,51 @@ public partial class DriveInfo : ContentPage
     public DriveInfo()
     {
         InitializeComponent();
+    }
 
-        enderecoLabel.Text = $"Origem: {CoordenadasStore.EnderecoOrigem}\n" +
-                             $"Destino: {CoordenadasStore.EnderecoDestino}\n" +
-                             $"Hora do Submit: {CoordenadasStore.HoraSubmit}";
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await LoadAcceptedTrips();
+    }
+
+    private async Task LoadAcceptedTrips()
+    {
+        TripsStack.Children.Clear();
+
+        var userId = Session.CurrentUser?.Id;
+        if (userId == null)
+        {
+            TripsStack.Children.Add(new Label { Text = "Nenhum utilizador autenticado.", HorizontalOptions = LayoutOptions.Center });
+            return;
+        }
+
+        var trips = (await App.Database.GetTripsOrderedByDateAsync())
+            .Where(t => t.UserId == userId && t.Status == "aceite")
+            .ToList();
+
+        if (trips.Count == 0)
+        {
+            TripsStack.Children.Add(new Label { Text = "Nenhuma viagem aceite encontrada.", HorizontalOptions = LayoutOptions.Center });
+            return;
+        }
+
+        foreach (var trip in trips)
+        {
+            var frame = new Frame
+            {
+                BackgroundColor = Colors.LightGray,
+                CornerRadius = 10,
+                Padding = 15,
+                Margin = new Thickness(0, 0, 0, 10),
+                Content = new Label
+                {
+                    Text = $"{trip.Origem} → {trip.Destino}\nData: {trip.HoraSubmit}",
+                    FontSize = 16
+                }
+            };
+            TripsStack.Children.Add(frame);
+        }
     }
 
     private async void HomeClicked(object sender, EventArgs e)
@@ -26,6 +67,4 @@ public partial class DriveInfo : ContentPage
     {
         await Shell.Current.GoToAsync("//Profile");
     }
-
-
 }

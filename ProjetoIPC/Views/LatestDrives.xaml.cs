@@ -8,6 +8,7 @@ public partial class LatestDrives : ContentPage
     public LatestDrives()
     {
         InitializeComponent();
+        base.OnAppearing();
         LoadTrips();
     }
 
@@ -23,7 +24,7 @@ public partial class LatestDrives : ContentPage
             // Frame com info da viagem
             var frame = new Frame
             {
-                BackgroundColor = Colors.Gray,
+                BackgroundColor = Colors.LightGray,
                 Padding = 20,
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.FillAndExpand,

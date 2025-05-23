@@ -19,8 +19,10 @@
             </StackLayout>
 
             <!-- Main content area -->
-            <Frame BackgroundColor="Gray" HeightRequest="500" HorizontalOptions="FillAndExpand">
-                <Label x:Name="enderecoLabel" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Frame  HeightRequest="500" HorizontalOptions="FillAndExpand">
+                <ScrollView>
+                    <StackLayout x:Name="TripsStack" Padding="10"/>
+                </ScrollView>
             </Frame>
 
             <!-- Bottom navigation buttons -->

@@ -4,16 +4,44 @@ using ProjetoIPC.Models;
 using System;
 using System.Threading.Tasks;
 using ProjetoIPC.Services;
+using System.Linq;
 
 namespace ProjetoIPC
 {
     public partial class MainPage : ContentPage
     {
+        private Trip _pendingTrip;
+
         public MainPage()
         {
             InitializeComponent();
             CheckAndRequestLocationPermission();
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await CheckPendingTrip();
+        }
+
+        private async Task CheckPendingTrip()
+        {
+            var userId = Session.CurrentUser?.Id;
+            if (userId == null)
+            {
+                _pendingTrip = null;
+                CancelTripButton.IsVisible = false;
+                return;
+            }
+
+            var trips = await App.Database.GetTripsOrderedByDateAsync();
+            _pendingTrip = trips.FirstOrDefault(t =>
+                t.UserId == userId &&
+                (t.Status == "por aceitar"));
+
+            CancelTripButton.IsVisible = _pendingTrip != null && _pendingTrip.Status == "por aceitar";
+        }
+
 
         private async void CheckAndRequestLocationPermission()
         {
@@ -85,6 +113,13 @@ namespace ProjetoIPC
 
         private async void OnSubmitClicked(object sender, EventArgs e)
         {
+            await CheckPendingTrip();
+            if (_pendingTrip != null)
+            {
+                await DisplayAlert("Atenção", "Já existe uma viagem pendente ou aceite. Cancele ou aguarde antes de submeter outra.", "OK");
+                return;
+            }
+
             var origem = CoordenadasStore.EnderecoOrigem;
             var destino = CoordenadasStore.EnderecoDestino;
 
@@ -96,20 +131,31 @@ namespace ProjetoIPC
 
             CoordenadasStore.HoraSubmit = DateTime.Now.ToString("HH:mm:ss");
 
-            // Salvar viagem na base de dados
             var trip = new Trip
             {
                 Origem = origem,
                 Destino = destino,
                 Status = "por aceitar",
                 HoraSubmit = CoordenadasStore.HoraSubmit,
-                UserId = Session.CurrentUser?.Id // se quiser associar ao usuário
+                UserId = Session.CurrentUser?.Id
             };
             await App.Database.SaveTripAsync(trip);
 
             await DisplayAlert("Sucesso", "Viagem submetida e aguardando confirmação de um condutor.", "OK");
+            await CheckPendingTrip();
             Application.Current.MainPage = new AppShell();
         }
 
+        private async void OnCancelTripClicked(object sender, EventArgs e)
+        {
+            if (_pendingTrip != null && _pendingTrip.Status == "por aceitar")
+            {
+                _pendingTrip.Status = "cancelada";
+                await App.Database.UpdateTripAsync(_pendingTrip);
+                await DisplayAlert("Cancelada", "A sua viagem foi cancelada.", "OK");
+                _pendingTrip = null;
+                CancelTripButton.IsVisible = false;
+            }
+        }
     }
 }
