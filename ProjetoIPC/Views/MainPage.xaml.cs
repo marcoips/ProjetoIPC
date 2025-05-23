@@ -3,6 +3,7 @@ using Microsoft.Maui.Devices.Sensors;
 using ProjetoIPC.Models;
 using System;
 using System.Threading.Tasks;
+using ProjetoIPC.Services;
 
 namespace ProjetoIPC
 {
@@ -79,24 +80,36 @@ namespace ProjetoIPC
 
                 CoordenadasStore.EnderecoOrigem = Uri.UnescapeDataString(origem);
                 CoordenadasStore.EnderecoDestino = Uri.UnescapeDataString(destino);
-
-                Application.Current.MainPage = new AppShell();
             }
         }
 
-        private void OnSubmitClicked(object sender, EventArgs e)
+        private async void OnSubmitClicked(object sender, EventArgs e)
         {
             var origem = CoordenadasStore.EnderecoOrigem;
             var destino = CoordenadasStore.EnderecoDestino;
 
             if (string.IsNullOrEmpty(origem) || string.IsNullOrEmpty(destino))
             {
-                DisplayAlert("Erro", "Selecione a origem e destino no mapa antes de submeter.", "OK");
+                await DisplayAlert("Erro", "Selecione a origem e destino no mapa antes de submeter.", "OK");
                 return;
             }
 
             CoordenadasStore.HoraSubmit = DateTime.Now.ToString("HH:mm:ss");
+
+            // Salvar viagem na base de dados
+            var trip = new Trip
+            {
+                Origem = origem,
+                Destino = destino,
+                Status = "por aceitar",
+                HoraSubmit = CoordenadasStore.HoraSubmit,
+                UserId = Session.CurrentUser?.Id // se quiser associar ao usuário
+            };
+            await App.Database.SaveTripAsync(trip);
+
+            await DisplayAlert("Sucesso", "Viagem submetida e aguardando confirmação de um condutor.", "OK");
             Application.Current.MainPage = new AppShell();
         }
+
     }
 }
