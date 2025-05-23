@@ -75,5 +75,14 @@ namespace ProjetoIPC.Views
             Application.Current.MainPage = new Login();
         }
 
+        private void PhoneEntry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Remove qualquer caractere que não seja dígito
+            var entry = (Entry)sender;
+            string onlyNumbers = new string(entry.Text.Where(char.IsDigit).ToArray());
+            if (entry.Text != onlyNumbers)
+                entry.Text = onlyNumbers;
+        }
+
     }
 }

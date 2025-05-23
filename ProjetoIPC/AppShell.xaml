@@ -40,6 +40,7 @@
     Route="DriveInfo" />
 
         <ShellContent
+    x:Name="LatestDrivesMenu"
     Title="LatestDrives"
     ContentTemplate="{DataTemplate views:LatestDrives}"
     Route="LatestDrives" />

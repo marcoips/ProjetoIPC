@@ -34,9 +34,10 @@ public partial class Login : ContentPage
         {   
             Session.CurrentUser = user;
             await DisplayAlert("Sucesso", "Login realizado com sucesso!", "OK");
-            
-            // Redireciona para a AppShell (ou outra página principal)
-            Application.Current.MainPage = new AppShell();
+
+            var shell = new AppShell();
+            shell.SetLatestDrivesVisibility(); // Atualiza a visibilidade conforme o usuário logado
+            Application.Current.MainPage = shell; ;
         }
         else
         {
