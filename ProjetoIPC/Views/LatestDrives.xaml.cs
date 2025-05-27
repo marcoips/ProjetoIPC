@@ -21,7 +21,12 @@ public partial class LatestDrives : ContentPage
 
         foreach (var trip in trips)
         {
-            // Frame com info da viagem
+            // Buscar o utilizador associado à viagem
+            User user = null;
+            if (trip.UserId != null)
+                user = await App.Database.GetUserByIdAsync(trip.UserId);
+
+            // Frame com info da viagem, nome e condição
             var frame = new Frame
             {
                 BackgroundColor = Colors.LightGray,
@@ -30,7 +35,9 @@ public partial class LatestDrives : ContentPage
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Content = new Label
                 {
-                    Text = $"{trip.Origem} → {trip.Destino} ({trip.HoraSubmit})",
+                    Text = $"{trip.Origem} → {trip.Destino} ({trip.HoraSubmit})\n" +
+                           $"Nome: {user?.Name ?? "Desconhecido"}\n" +
+                           $"Condição: {user?.Condition ?? "Nenhuma"}",
                     VerticalOptions = LayoutOptions.Center
                 },
                 Margin = new Thickness(0, 0, -450, 0)

@@ -59,15 +59,29 @@
                    AutomationProperties.Name="Cidade"
                    AutomationProperties.HelpText="Campo para inserir a cidade" />
 
-            <Picker Title="Condition" x:Name="ConditionPicker"
+            <Picker Title="Condição (opcional)" x:Name="ConditionPicker"
                     AutomationProperties.Name="Condição"
-                    AutomationProperties.HelpText="Selecione uma condição: cego, surdo ou mudo">
+                    AutomationProperties.HelpText="Selecione a sua condição, se aplicável">
                 <Picker.Items>
-                    <x:String>Cego</x:String>
-                    <x:String>Surdo</x:String>
-                    <x:String>Mudo</x:String>
+                    <x:String>Nenhuma condição</x:String>
+                    <x:String>Pessoa cega</x:String>
+                    <x:String>Pessoa surda</x:String>
+                    <x:String>Pessoa muda</x:String>
+                    <x:String>Baixa visão</x:String>
+                    <x:String>Surdocegueira</x:String>
+                    <x:String>Deficiência motora</x:String>
+                    <x:String>Outra</x:String>
                 </Picker.Items>
             </Picker>
+
+            <Button Text="Atualizar"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="45"
+                    Clicked="OnUpdateButtonClicked"
+                    AutomationProperties.Name="Atualizar"
+                    AutomationProperties.HelpText="Atualiza os dados do perfil" />
         </StackLayout>
 
         <!-- Barra de navegação inferior corrigida -->

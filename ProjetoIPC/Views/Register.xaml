@@ -55,6 +55,22 @@
                     <Entry Placeholder="City" x:Name="CityEntry"
                            AutomationProperties.Name="Cidade"
                            AutomationProperties.HelpText="Campo para inserir a cidade"/>
+                    <Picker x:Name="ConditionPicker"
+                           Title="Condição (opcional)"
+                           AutomationProperties.Name="Condição"
+                           AutomationProperties.HelpText="Selecione a sua condição, se aplicável">
+                        <Picker.Items>
+                            <x:String>Nenhuma condição</x:String>
+                            <x:String>Pessoa cega</x:String>
+                            <x:String>Pessoa surda</x:String>
+                            <x:String>Pessoa muda</x:String>
+                            <x:String>Baixa visão</x:String>
+                            <x:String>Surdocegueira</x:String>
+                            <x:String>Deficiência motora</x:String>
+                            <x:String>Outra</x:String>
+                        </Picker.Items>
+                    </Picker>
+
                     <Button Text="Submit" 
                             BackgroundColor="Orange" 
                             TextColor="White" 

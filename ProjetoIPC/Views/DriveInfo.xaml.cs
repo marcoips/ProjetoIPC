@@ -39,6 +39,11 @@ public partial class DriveInfo : ContentPage
 
         foreach (var trip in trips)
         {
+            // Buscar o utilizador associado à viagem
+            User user = null;
+            if (trip.UserId != null)
+                user = await App.Database.GetUserByIdAsync(trip.UserId);
+
             var frame = new Frame
             {
                 BackgroundColor = Colors.LightGray,
@@ -47,7 +52,10 @@ public partial class DriveInfo : ContentPage
                 Margin = new Thickness(0, 0, 0, 10),
                 Content = new Label
                 {
-                    Text = $"{trip.Origem} → {trip.Destino}\nData: {trip.HoraSubmit}",
+                    Text = $"{trip.Origem} → {trip.Destino}\n" +
+                           $"Data: {trip.HoraSubmit}\n" +
+                           $"Nome: {user?.Name ?? "Desconhecido"}\n" +
+                           $"Condição: {user?.Condition ?? "Nenhuma"}",
                     FontSize = 16
                 }
             };

@@ -1,4 +1,4 @@
-using ProjetoIPC.Models; // Importa a classe User
+using ProjetoIPC.Models;
 using System;
 
 namespace ProjetoIPC.Views
@@ -26,6 +26,7 @@ namespace ProjetoIPC.Views
             string address = AddressEntry.Text?.Trim();
             string country = CountryEntry.Text?.Trim();
             string city = CityEntry.Text?.Trim();
+            string condition = ConditionPicker.SelectedItem?.ToString() ?? "Nenhuma condição";
 
             // Validação dos campos obrigatórios
             if (string.IsNullOrWhiteSpace(username) ||
@@ -65,7 +66,8 @@ namespace ProjetoIPC.Views
                 Phone = phone,
                 Address = address,
                 Country = country,
-                City = city
+                City = city,
+                Condition = condition // <-- Salva a condição selecionada
             };
 
             await App.Database.SaveUserAsync(user);
@@ -83,6 +85,5 @@ namespace ProjetoIPC.Views
             if (entry.Text != onlyNumbers)
                 entry.Text = onlyNumbers;
         }
-
     }
 }

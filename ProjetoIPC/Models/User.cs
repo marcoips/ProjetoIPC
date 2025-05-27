@@ -24,6 +24,8 @@ namespace ProjetoIPC.Models
         public string Country { get; set; }
         public string City { get; set; }
 
+        public string Condition { get; set; }
+
         public bool IsDriver { get; set; }
     }
 }

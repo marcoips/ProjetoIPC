@@ -33,6 +33,14 @@ namespace ProjetoIPC.Data
             return _database.Table<Trip>().OrderByDescending(t => t.Id).ToListAsync();
         }
 
+        public Task<User> GetUserByIdAsync(int? userId)
+        {
+            if (userId == null)
+                return Task.FromResult<User>(null);
+            return _database.Table<User>().Where(u => u.Id == userId).FirstOrDefaultAsync();
+        }
+
+
         public Task<int> UpdateTripAsync(Trip trip)
         {
             return _database.UpdateAsync(trip);
@@ -46,5 +54,11 @@ namespace ProjetoIPC.Data
         {
             return _database.InsertAsync(trip);
         }
+
+        public Task<int> UpdateUserAsync(User user)
+        {
+            return _database.UpdateAsync(user);
+        }
+
     }
 }
