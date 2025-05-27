@@ -31,19 +31,37 @@
                 TextColor="White"
                 CornerRadius="10"
                 HeightRequest="45" 
-                Clicked="OnApplyButtonClicked"/>
+                Clicked="OnApplyButtonClicked"
+                AutomationProperties.Name="Candidatar-se a condutor"
+                AutomationProperties.HelpText="Clique para se candidatar a condutor" />
 
         <!-- Campos do formulário -->
         <StackLayout Spacing="10">
-            <Entry Placeholder="Email" x:Name="EmailEntry" />
-            <Entry Placeholder="Name" x:Name="NameEntry" />
-            <Entry Placeholder="Birthday" x:Name="BirthdayEntry" />
-            <Entry Placeholder="Phone" x:Name="PhoneEntry" />
-            <Entry Placeholder="Address" x:Name="AddressEntry" />
-            <Entry Placeholder="Country" x:Name="CountryEntry" />
-            <Entry Placeholder="City" x:Name="CityEntry" />
+            <Entry Placeholder="Email" x:Name="EmailEntry"
+                   AutomationProperties.Name="Email"
+                   AutomationProperties.HelpText="Campo para inserir o email" />
+            <Entry Placeholder="Name" x:Name="NameEntry"
+                   AutomationProperties.Name="Nome"
+                   AutomationProperties.HelpText="Campo para inserir o nome" />
+            <Entry Placeholder="Birthday" x:Name="BirthdayEntry"
+                   AutomationProperties.Name="Data de nascimento"
+                   AutomationProperties.HelpText="Campo para inserir a data de nascimento" />
+            <Entry Placeholder="Phone" x:Name="PhoneEntry"
+                   AutomationProperties.Name="Telefone"
+                   AutomationProperties.HelpText="Campo para inserir o número de telefone" />
+            <Entry Placeholder="Address" x:Name="AddressEntry"
+                   AutomationProperties.Name="Morada"
+                   AutomationProperties.HelpText="Campo para inserir a morada" />
+            <Entry Placeholder="Country" x:Name="CountryEntry"
+                   AutomationProperties.Name="País"
+                   AutomationProperties.HelpText="Campo para inserir o país" />
+            <Entry Placeholder="City" x:Name="CityEntry"
+                   AutomationProperties.Name="Cidade"
+                   AutomationProperties.HelpText="Campo para inserir a cidade" />
 
-            <Picker Title="Condition" x:Name="ConditionPicker">
+            <Picker Title="Condition" x:Name="ConditionPicker"
+                    AutomationProperties.Name="Condição"
+                    AutomationProperties.HelpText="Selecione uma condição: cego, surdo ou mudo">
                 <Picker.Items>
                     <x:String>Cego</x:String>
                     <x:String>Surdo</x:String>
@@ -51,8 +69,6 @@
                 </Picker.Items>
             </Picker>
         </StackLayout>
-
-
 
         <!-- Barra de navegação inferior corrigida -->
         <Grid ColumnSpacing="10">
@@ -66,18 +82,24 @@
                     BackgroundColor="Orange"
                     TextColor="White"
                     Grid.Column="0" 
-                    Clicked="HomeClicked"/>
+                    Clicked="HomeClicked"
+                    AutomationProperties.Name="Início"
+                    AutomationProperties.HelpText="Vai para a página inicial" />
 
             <Button Text="Activity"
                     BackgroundColor="Orange"
                     TextColor="White"
                     Grid.Column="1" 
-                    Clicked="ActivityClicked"/>
+                    Clicked="ActivityClicked"
+                    AutomationProperties.Name="Atividade"
+                    AutomationProperties.HelpText="Mostra as atividades" />
 
             <Button Text="Profile"
                     BackgroundColor="Orange"
                     TextColor="White"
-                    Grid.Column="2" />
+                    Grid.Column="2"
+                    AutomationProperties.Name="Perfil"
+                    AutomationProperties.HelpText="Está na página de perfil" />
         </Grid>
 
     </StackLayout>

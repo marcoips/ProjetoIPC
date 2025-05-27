@@ -25,7 +25,9 @@
                     TextColor="Black"
                     CornerRadius="20"
                     HeightRequest="40" 
-                    Clicked="OnLoginButtonClicked"/>
+                    Clicked="OnLoginButtonClicked"
+                    AutomationProperties.Name="Entrar"
+                    AutomationProperties.HelpText="Faz login na aplicação" />
             <!-- Separator -->
             <Label Text="or" HorizontalOptions="Center" />
             <!-- Facebook Login Button -->
@@ -33,14 +35,18 @@
                     BackgroundColor="LightSkyBlue"
                     TextColor="Black"
                     CornerRadius="20"
-                    HeightRequest="40" />
+                    HeightRequest="40"
+                    AutomationProperties.Name="Entrar com Facebook"
+                    AutomationProperties.HelpText="Faz login usando a conta do Facebook" />
             <!-- Register Button -->
             <Button Text="register"
                     BackgroundColor="Gray"
                     TextColor="White"
                     CornerRadius="20"
                     HeightRequest="40"
-                    Clicked="OnRegisterButtonClicked"/>
+                    Clicked="OnRegisterButtonClicked"
+                    AutomationProperties.Name="Registar"
+                    AutomationProperties.HelpText="Cria uma nova conta de utilizador" />
         </VerticalStackLayout>
     </Grid>
 </ContentPage>

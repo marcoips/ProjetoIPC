@@ -29,9 +29,27 @@
 
                 <!-- Barra de Navegação Inferior -->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
-                    <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
-                    <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
-                    <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ProfileClicked"/>
+                    <Button Text="home"
+                            BackgroundColor="Orange"
+                            WidthRequest="100"
+                            Margin="5"
+                            Clicked="HomeClicked"
+                            AutomationProperties.Name="Início"
+                            AutomationProperties.HelpText="Vai para a página inicial" />
+                    <Button Text="activity"
+                            BackgroundColor="Orange"
+                            WidthRequest="100"
+                            Margin="5"
+                            Clicked="ActivityClicked"
+                            AutomationProperties.Name="Atividade"
+                            AutomationProperties.HelpText="Mostra as atividades" />
+                    <Button Text="profile"
+                            BackgroundColor="Orange"
+                            WidthRequest="100"
+                            Margin="5"
+                            Clicked="ProfileClicked"
+                            AutomationProperties.Name="Perfil"
+                            AutomationProperties.HelpText="Vai para o perfil do utilizador" />
                 </StackLayout>
             </VerticalStackLayout>
         </ScrollView>

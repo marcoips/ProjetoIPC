@@ -4,9 +4,33 @@
              x:Class="ProjetoIPC.Views.Help"
              Title="Ajuda/Suporte">
     <StackLayout Padding="30" VerticalOptions="CenterAndExpand" Spacing="20">
-        <Label Text="Se teve algum problema na app ou precisa de suporte, ligue para o número 912 345 678 ou envie um email para suporte@exemplo.com."
+        <Label Text="Se teve algum problema na app ou precisa de suporte, utilize os contactos abaixo:"
                FontSize="18"
                HorizontalOptions="Center"
                HorizontalTextAlignment="Center"/>
+        <Label Text="Ligar para: 912 345 678"
+               FontSize="16"
+               TextColor="Blue"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               AutomationProperties.Name="Ligar para 912 345 678"
+               AutomationProperties.HelpText="Toque para ligar para o suporte"
+               >
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={x:Reference Name=HelpPage}, Path=BindingContext.CallSupportCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Text="Email: suporte@exemplo.com"
+               FontSize="16"
+               TextColor="Blue"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               AutomationProperties.Name="Enviar email para suporte arroba exemplo ponto com"
+               AutomationProperties.HelpText="Toque para enviar um email para o suporte"
+               >
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={x:Reference Name=HelpPage}, Path=BindingContext.EmailSupportCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
     </StackLayout>
 </ContentPage>

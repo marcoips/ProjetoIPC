@@ -24,7 +24,9 @@
                 VerticalOptions="Start"
                 Margin="20,40,0,0"
                 Clicked="OnBackButtonClicked"
-                ZIndex="1"/>
+                ZIndex="1"
+                AutomationProperties.Name="Voltar"
+                AutomationProperties.HelpText="Volta para a tela anterior" />
 
         <ScrollView>
             <StackLayout Padding="20" Spacing="20" HorizontalOptions="Center" VerticalOptions="FillAndExpand">
@@ -54,7 +56,9 @@
                                     BackgroundColor="LightGray"
                                     HeightRequest="40"
                                     WidthRequest="100"
-                                    Clicked="OnUploadDriverLicenseClicked"/>
+                                    Clicked="OnUploadDriverLicenseClicked"
+                                    AutomationProperties.Name="Carregar carta de condução"
+                                    AutomationProperties.HelpText="Carrega o ficheiro da carta de condução" />
                             <Label x:Name="DriverLicenseFileNameLabel"
                                    Text=""
                                    FontSize="12"
@@ -79,7 +83,9 @@
                                     BackgroundColor="LightGray"
                                     HeightRequest="40"
                                     WidthRequest="100"
-                                    Clicked="OnUploadIdentityCardClicked"/>
+                                    Clicked="OnUploadIdentityCardClicked"
+                                    AutomationProperties.Name="Carregar cartão de cidadão"
+                                    AutomationProperties.HelpText="Carrega o ficheiro do cartão de cidadão" />
                             <Label x:Name="IdentityCardFileNameLabel"
                                    Text=""
                                    FontSize="12"
@@ -104,7 +110,9 @@
                                     BackgroundColor="LightGray"
                                     HeightRequest="40"
                                     WidthRequest="100"
-                                    Clicked="OnUploadVehicleDocsClicked"/>
+                                    Clicked="OnUploadVehicleDocsClicked"
+                                    AutomationProperties.Name="Carregar documentos do veículo"
+                                    AutomationProperties.HelpText="Carrega os ficheiros dos documentos do veículo" />
                             <Label x:Name="VehicleDocsFileNameLabel"
                                    Text=""
                                    FontSize="12"
@@ -124,7 +132,9 @@
                         WidthRequest="200"
                         HorizontalOptions="Center"
                         Margin="0,30,0,0"
-                        Clicked="OnSubmitApplicationClicked"/>
+                        Clicked="OnSubmitApplicationClicked"
+                        AutomationProperties.Name="Submeter candidatura"
+                        AutomationProperties.HelpText="Envia a candidatura de motorista" />
             </StackLayout>
         </ScrollView>
     </Grid>

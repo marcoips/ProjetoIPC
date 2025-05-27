@@ -11,38 +11,41 @@
                HorizontalOptions="Fill"
                VerticalOptions="Fill" />
 
-            <!-- Conteúdo por cima da imagem -->
-            <StackLayout VerticalOptions="FillAndExpand" Padding="20">
-                <Frame HeightRequest="500" 
+        <!-- Conteúdo por cima da imagem -->
+        <StackLayout VerticalOptions="FillAndExpand" Padding="20">
+            <Frame HeightRequest="500" 
                    WidthRequest="600"
                    CornerRadius="10" 
                    Padding="0"
                    HasShadow="True"
                    VerticalOptions="StartAndExpand">
-                    <WebView x:Name="mapWebView" 
+                <WebView x:Name="mapWebView" 
                          HorizontalOptions="Fill" 
                          VerticalOptions="FillAndExpand"/>
-                </Frame>
+            </Frame>
 
-                <Button Text="Submit" 
+            <Button Text="Submit" 
                     HorizontalOptions="Center" 
                     VerticalOptions="End"
                     BackgroundColor="Orange"
                     TextColor="White"
                     CornerRadius="10"
                     Margin="0,0,0,50"
-                    Clicked="OnSubmitClicked"/>
+                    Clicked="OnSubmitClicked"
+                    AutomationProperties.Name="Submeter"
+                    AutomationProperties.HelpText="Envia a viagem selecionada" />
 
-                <Button x:Name="CancelTripButton"
+            <Button x:Name="CancelTripButton"
                     Text="Cancelar Viagem"
                     BackgroundColor="Red"
                     TextColor="White"
                     CornerRadius="10"
                     Margin="0,10,0,0"
                     IsVisible="False"
-                    Clicked="OnCancelTripClicked"/>
+                    Clicked="OnCancelTripClicked"
+                    AutomationProperties.Name="Cancelar Viagem"
+                    AutomationProperties.HelpText="Cancela a viagem em andamento" />
 
         </StackLayout>
     </Grid>
 </ContentPage>
-

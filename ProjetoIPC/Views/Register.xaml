@@ -1,4 +1,4 @@
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetoIPC.Views.Register"
              Title="Register">
@@ -17,21 +17,50 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Text="&#x2190;" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" Clicked="OnBackButtonClicked"/>
+                <Button Text="Voltar" 
+                        Grid.Row="0" 
+                        Grid.Column="0" 
+                        HorizontalOptions="Start" 
+                        Clicked="OnBackButtonClicked"
+                        AutomationProperties.Name="Voltar"
+                        AutomationProperties.HelpText="Volta para a tela anterior"/>
                 <Label Text="Register" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"/>
                 <Image Source="logo.png" Grid.Row="0" Grid.Column="2" HorizontalOptions="End" WidthRequest="40" HeightRequest="40"/>
 
                 <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Spacing="10">
-                    <Entry Placeholder="Login" x:Name="UsernameEntry"/>
-                    <Entry Placeholder="Password" x:Name="PasswordEntry" IsPassword="True"/>
-                    <Entry Placeholder="Email" x:Name="EmailEntry"/>
-                    <Entry Placeholder="Name" x:Name="NameEntry"/>
-                    <DatePicker x:Name="DOBPicker"/>
-                    <Entry Placeholder="Phone" x:Name="PhoneEntry" Keyboard="Numeric" TextChanged="PhoneEntry_TextChanged"/>
-                    <Entry Placeholder="Address" x:Name="AddressEntry"/>
-                    <Entry Placeholder="Country" x:Name="CountryEntry"/>
-                    <Entry Placeholder="City" x:Name="CityEntry"/>
-                    <Button Text="Submit" BackgroundColor="Orange" TextColor="White" Clicked="SubmitClick"/>
+                    <Entry Placeholder="Login" x:Name="UsernameEntry"
+                           AutomationProperties.Name="Login"
+                           AutomationProperties.HelpText="Campo para inserir o nome de utilizador"/>
+                    <Entry Placeholder="Password" x:Name="PasswordEntry" IsPassword="True"
+                           AutomationProperties.Name="Senha"
+                           AutomationProperties.HelpText="Campo para inserir a senha"/>
+                    <Entry Placeholder="Email" x:Name="EmailEntry"
+                           AutomationProperties.Name="Email"
+                           AutomationProperties.HelpText="Campo para inserir o email"/>
+                    <Entry Placeholder="Name" x:Name="NameEntry"
+                           AutomationProperties.Name="Nome"
+                           AutomationProperties.HelpText="Campo para inserir o nome"/>
+                    <DatePicker x:Name="DOBPicker"
+                                AutomationProperties.Name="Data de nascimento"
+                                AutomationProperties.HelpText="Selecione a data de nascimento"/>
+                    <Entry Placeholder="Phone" x:Name="PhoneEntry" Keyboard="Numeric" TextChanged="PhoneEntry_TextChanged"
+                           AutomationProperties.Name="Telefone"
+                           AutomationProperties.HelpText="Campo para inserir o número de telefone"/>
+                    <Entry Placeholder="Address" x:Name="AddressEntry"
+                           AutomationProperties.Name="Morada"
+                           AutomationProperties.HelpText="Campo para inserir a morada"/>
+                    <Entry Placeholder="Country" x:Name="CountryEntry"
+                           AutomationProperties.Name="País"
+                           AutomationProperties.HelpText="Campo para inserir o país"/>
+                    <Entry Placeholder="City" x:Name="CityEntry"
+                           AutomationProperties.Name="Cidade"
+                           AutomationProperties.HelpText="Campo para inserir a cidade"/>
+                    <Button Text="Submit" 
+                            BackgroundColor="Orange" 
+                            TextColor="White" 
+                            Clicked="SubmitClick"
+                            AutomationProperties.Name="Submeter"
+                            AutomationProperties.HelpText="Envia o formulário de registro"/>
                 </StackLayout>
             </Grid>
         </StackLayout>

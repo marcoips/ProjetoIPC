@@ -21,7 +21,13 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button Text="←" BackgroundColor="Red" WidthRequest="50" HeightRequest="50" Grid.Column="0"/>
+                <Button Text="←"
+                        BackgroundColor="Red"
+                        WidthRequest="50"
+                        HeightRequest="50"
+                        Grid.Column="0"
+                        AutomationProperties.Name="Voltar"
+                        AutomationProperties.HelpText="Volta para a tela anterior" />
                 <Label Text="Message" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="1"/>
             </Grid>
 
@@ -34,15 +40,43 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Text="message" BackgroundColor="Blue" WidthRequest="100" Grid.Column="0"/>
-                <Button Text="cancel" BackgroundColor="Red" WidthRequest="100" Grid.Column="1"/>
+                <Button Text="message"
+                        BackgroundColor="Blue"
+                        WidthRequest="100"
+                        Grid.Column="0"
+                        AutomationProperties.Name="Enviar mensagem"
+                        AutomationProperties.HelpText="Envia a mensagem para o destinatário" />
+                <Button Text="cancel"
+                        BackgroundColor="Red"
+                        WidthRequest="100"
+                        Grid.Column="1"
+                        AutomationProperties.Name="Cancelar"
+                        AutomationProperties.HelpText="Cancela o envio da mensagem" />
             </Grid>
 
             <!-- Bottom navigation buttons -->
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
-                <Button Text="home" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="HomeClicked"/>
-                <Button Text="activity" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ActivityClicked"/>
-                <Button Text="profile" BackgroundColor="Orange" WidthRequest="100" Margin="5" Clicked="ProfileClicked"/>
+                <Button Text="home"
+                        BackgroundColor="Orange"
+                        WidthRequest="100"
+                        Margin="5"
+                        Clicked="HomeClicked"
+                        AutomationProperties.Name="Início"
+                        AutomationProperties.HelpText="Vai para a página inicial" />
+                <Button Text="activity"
+                        BackgroundColor="Orange"
+                        WidthRequest="100"
+                        Margin="5"
+                        Clicked="ActivityClicked"
+                        AutomationProperties.Name="Atividade"
+                        AutomationProperties.HelpText="Mostra as atividades" />
+                <Button Text="profile"
+                        BackgroundColor="Orange"
+                        WidthRequest="100"
+                        Margin="5"
+                        Clicked="ProfileClicked"
+                        AutomationProperties.Name="Perfil"
+                        AutomationProperties.HelpText="Vai para o perfil do utilizador" />
             </StackLayout>
         </StackLayout>
     </Grid>

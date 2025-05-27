@@ -11,7 +11,7 @@
                Opacity="0.2"  
                HorizontalOptions="Fill"
                VerticalOptions="Fill" />
-        
+
         <StackLayout Padding="20">
             <Grid>
                 <Grid.RowDefinitions>
@@ -25,13 +25,23 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Text="&#x2190;" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" Clicked="OnBackButtonClicked"/>
-                <Label Text="Confirmation" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"/>                
+                <Button Text="&#x2190;" 
+                        Grid.Row="0" 
+                        Grid.Column="0" 
+                        HorizontalOptions="Start" 
+                        Clicked="OnBackButtonClicked"
+                        AutomationProperties.Name="Voltar"
+                        AutomationProperties.HelpText="Volta para a tela anterior" />
+                <Label Text="Confirmation" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"/>
 
                 <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Spacing="10">
                     <Label Text="Insert mail code sent to your mail" TextColor="Gray"/>
                     <Entry Placeholder="here"/>
-                    <Button Text="Submit" BackgroundColor="Orange" TextColor="White"/>
+                    <Button Text="Submit" 
+                            BackgroundColor="Orange" 
+                            TextColor="White"
+                            AutomationProperties.Name="Submeter"
+                            AutomationProperties.HelpText="Envia o código de confirmação" />
                 </StackLayout>
             </Grid>
         </StackLayout>
